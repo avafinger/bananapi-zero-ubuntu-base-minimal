@@ -1,7 +1,7 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.15.y
 
-This is a WiP, a bare minimum firmware image with basic configurations.
+This is a *WiP*, a bare minimum firmware image with basic configurations.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
 
 
@@ -12,11 +12,15 @@ Currently working, still need more tests
     * wlan up
     * bare minimum image
     * reused nanopi rootfs
+    * ssh enabled
 
-Known issues:
+Known issues (will be fixed):
     
     * Hit ENTER to see the login prompt
     * Boot with your monitor/display turned ON
+    * HDMI driver is under development, Jernej (the dev. guy behind the driver)
+      has given some tips to fix this, hopefully, 
+      or move to a newer kernel with an updated driver.
 
 To do:
 
@@ -28,21 +32,41 @@ To do:
     * Clear instructions
 
 
+# Tips
+
+    * Board runs at ~60ºC when idle with HDMI, ~40ºC without HDMI enabled (*without heatsink*)
+    * issue in shell on first login: *sudo apt-get update && sudo apt-get upgrade*
+
+
 # Basic instructions to flash firmware to SD CARD
 
-* You need a linux box
-* You need a SD CARD reader/writer
+* You need a *linux box*
+* You need a *good* SD CARD reader/writer
+* Get a trusted brand for the SD CARD
 
 * insert your SD CARD into SDHC reader/writer:
 
-  check which devide, type in shell: 
+  check which device is your SD CARD, type in shell: 
 
 		dmesg | tail
 
-  
+
+  An output of USB SDHC reader/writer card 
+
 		[47484.133274]  sdc: sdc1 sdc2
 		[47488.681276] EXT4-fs (sdc1): mounted filesystem with ordered data mode. Opts: (null)
 		[47488.955328] EXT4-fs (sdc2): mounted filesystem without journal. Opts: (null)
+
+
+  An output of internal SDHC reader/writer card 
+
+		[ 2024.720656] mmc0: new SDHC card at address 59b4
+		[ 2024.759743] mmcblk0: mmc0:59b4 SDU1  7.52 GiB 
+		[ 2024.759889]  mmcblk0: p1 p2
+		[ 2025.140282] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode
+		[ 2025.222858] EXT4-fs (mmcblk0p2): mounted filesystem without journal
+
+  Your device will be in the form of: /dev/sd*X* where *X* is your *sd card letter* (b,c,d...) or /dev/mmcblk*Y* where *Y* is your device *number* (0,1,2...)
 
 
 * format the sd card:
@@ -51,9 +75,18 @@ To do:
 
 		sudo ./format_sd_mainline.sh /dev/sdc
 
+   or /dev/mmcblk0 if you have SDHC reader on your laptop for example
+
+		sudo ./format_sd_mainline.sh /dev/mmcblk0
+
 * flash Image to sd card:
 
 		sudo ./flash_sdcard_m2z.sh /dev/sdc
+
+* flash Image with *ssh enabled* to sd card:
+
+		sudo ./flash_sdcard_m2z_ssh.sh /dev/sdc
+
 
 * Booting first time
   
@@ -75,6 +108,18 @@ Before you boot the Image, please edit /etc/wpa_supplicant/wpa_supplicant.conf a
 	}
 
 
+* Login first time
+
+You can login with 
+*user: ubuntu*
+*pasw: ubuntu*
+via serial debg or use ssh.
+
+Conecting via ssh or putty:
+ssh ubuntu@IP where IP is the IP assigned to the board.
+
+# Credits
+Kernel based on megous's work (sunxi-linux).
 
 
 # bootlog of bpi-m2z with Kernel 4.15.7
