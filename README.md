@@ -1,7 +1,7 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.15.y
 
-This is a *WiP*, a bare minimum firmware image with basic configurations.
+This is a **WiP**, a bare minimum firmware image with basic configurations.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
 
 
@@ -111,15 +111,19 @@ Before you boot the Image, please edit /etc/wpa_supplicant/wpa_supplicant.conf a
 * Login first time
 
 You can login with 
-*user: ubuntu*
-*pasw: ubuntu*
-via serial debg or use ssh.
+
+  **user: ubuntu**
+
+  **pasw: ubuntu**
+
+via serial debug or use ssh to connect remotely from your computer.
 
 Conecting via ssh or putty:
 ssh ubuntu@IP where IP is the IP assigned to the board.
 
 # Credits
 Kernel based on megous's work (sunxi-linux).
+Thanks to Nora Lee (FOXCONN) for the sample.
 
 
 # bootlog of bpi-m2z with Kernel 4.15.7
