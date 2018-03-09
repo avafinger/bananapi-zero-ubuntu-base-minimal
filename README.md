@@ -1,19 +1,80 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.15.y
 
-Currently working, still need some tests
+This is a WiP, a bare minimum firmware image with basic configurations.
+The idea behind this firmware is to have a very basic sd card image and add packages to your need.
 
-    * framebuffer 1920x1080?
+
+Currently working, still need more tests
+
+    * framebuffer with 1920x1080
     * eth up
     * wlan up
     * bare minimum image
-    * re-used nanopi rootfs
+    * reused nanopi rootfs
 
-to do:
+Known issues:
+    
+    * Hit ENTER to see the login prompt
+    * Boot with your monitor/display turned ON
 
+To do:
+
+    * build regulatory.db to your country for the wifi
+    * edit /etc/wpa_supplicant and add your SSID and password in order to use Wifi
     * rootfs for ubuntu 18.04
-    * speed up boot times
+    * speed up boot times, i enabled verbosity to find errors
     * annotations on how to build
+    * Clear instructions
+
+
+# Basic instructions to flash firmware to SD CARD
+
+* You need a linux box
+* You need a SD CARD reader/writer
+
+* insert your SD CARD into SDHC reader/writer:
+
+  check which devide, type in shell: 
+
+	dmesg | tail
+
+ 
+	[47484.133274]  sdc: sdc1 sdc2
+	[47488.681276] EXT4-fs (sdc1): mounted filesystem with ordered data mode. Opts: (null)
+	[47488.955328] EXT4-fs (sdc2): mounted filesystem without journal. Opts: (null)
+
+
+* format the sd card:
+
+   in the example above, our sd card device is *sdc* (could be **sdb**)
+
+	sudo ./format_sd_mainline.sh /dev/sdc
+
+* flash Image to sd card:
+
+	sudo ./flash_sdcard_m2z.sh /dev/sdc
+
+* Booting first time
+  
+Before you boot, configure your wifi
+	
+
+# Connecting to AP via Wifi
+
+Wifi use wpa_supplicant to connect to AP.
+Before you boot the Image, please edit /etc/wpa_supplicant/wpa_supplicant.conf and add your data
+
+	ctrl_interface=/var/run/wpa-supplicant
+	ap_scan=1
+	network={
+	    ssid="YOUR SSID"
+	    scan_ssid=1
+	    key_mgmt=WPA-PSK
+	    psk="YOUR_PLAIN_TEXT_PASSWORD"
+	}
+
+
 
 
 # bootlog of bpi-m2z with Kernel 4.15.7
