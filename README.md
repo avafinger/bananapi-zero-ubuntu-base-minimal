@@ -37,23 +37,23 @@ To do:
 
   check which devide, type in shell: 
 
-	dmesg | tail
+		dmesg | tail
 
- 
-	[47484.133274]  sdc: sdc1 sdc2
-	[47488.681276] EXT4-fs (sdc1): mounted filesystem with ordered data mode. Opts: (null)
-	[47488.955328] EXT4-fs (sdc2): mounted filesystem without journal. Opts: (null)
+  
+		[47484.133274]  sdc: sdc1 sdc2
+		[47488.681276] EXT4-fs (sdc1): mounted filesystem with ordered data mode. Opts: (null)
+		[47488.955328] EXT4-fs (sdc2): mounted filesystem without journal. Opts: (null)
 
 
 * format the sd card:
 
    in the example above, our sd card device is *sdc* (could be **sdb**)
 
-	sudo ./format_sd_mainline.sh /dev/sdc
+		sudo ./format_sd_mainline.sh /dev/sdc
 
 * flash Image to sd card:
 
-	sudo ./flash_sdcard_m2z.sh /dev/sdc
+		sudo ./flash_sdcard_m2z.sh /dev/sdc
 
 * Booting first time
   
