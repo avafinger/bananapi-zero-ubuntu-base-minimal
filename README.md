@@ -21,7 +21,10 @@ Known issues (will be fixed):
     * HDMI driver is under development, Jernej (the dev. guy behind the driver)
       has given some tips to fix this, hopefully, 
       or move to a newer kernel with an updated driver.
-
+    * Debian Bug report logs - #892229
+      wireless-regdb: Missing support for kernel direct loading
+      This seems to affect ubuntu 16.04 and 18.04.
+    
 To do:
 
     * build regulatory.db to your country for the wifi
@@ -36,6 +39,8 @@ To do:
 
     * Board runs at ~60ºC when idle with HDMI, ~40ºC without HDMI enabled (*without heatsink*)
     * issue in shell on first login: *sudo apt-get update && sudo apt-get upgrade*
+    * If you have trouble with Wifi, i suggest read **Debian Bug report logs - #892229**
+      Regulatory.db needs to be generated somehow, until wireless-regdb is updated. 
 
 
 # Basic instructions to flash firmware to SD CARD
