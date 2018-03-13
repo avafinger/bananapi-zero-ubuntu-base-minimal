@@ -126,7 +126,7 @@ via serial debug or use ssh to connect remotely from your computer.
 Conecting via ssh or putty:
 ssh ubuntu@IP where IP is the IP assigned to the board.
 
-# First thing you should on the first login
+# First thing you should do on the first login
 
 * fix mv segment fault
 
@@ -136,13 +136,19 @@ ssh ubuntu@IP where IP is the IP assigned to the board.
 
 	sudo apt-get install --reinstall systemd
 
-* disable power managment
+* disable power management
 	
 	sudo iwconfig wlan0 power off
 
 or in /etc/network/interfaces add this entry:
 
-	wireless-power off
+    allow-hotplug wlan0
+      iface wlan0 inet dhcp
+      wpa-ssid your_ssid
+      #psk="12345678901234567890"
+      wpa-psk ababaf514dc02ae4944f89424d7b0d94f42ab3245cc413755ab655b8e344a2d9
+      dns-nameservers 8.8.8.8 8.8.4.4
+      wireless-power off <==== add this
 
 
 reboot now:
