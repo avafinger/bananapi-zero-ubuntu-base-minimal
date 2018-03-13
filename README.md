@@ -126,6 +126,30 @@ via serial debug or use ssh to connect remotely from your computer.
 Conecting via ssh or putty:
 ssh ubuntu@IP where IP is the IP assigned to the board.
 
+# First thing you should on the first login
+
+* fix mv segment fault
+
+	sudo apt-get install --reinstall coreutils
+
+* fix missing service
+
+	sudo apt-get install --reinstall systemd
+
+* disable power managment
+	
+	sudo iwconfig wlan0 power off
+
+or in /etc/network/interfaces add this entry:
+
+	wireless-power off
+
+
+reboot now:
+
+	sudo reboot
+
+
 # Credits
 Kernel based on megous's work (sunxi-linux).
 Thanks to Nora Lee (FOXCONN) for the sample.
