@@ -35,8 +35,9 @@ Known issues:
     
 To do before first boot:
 
-    * edit /etc/network/interfaces and add your SSID and password in order to use connect to your Wifi
-      Generate wpa-psk for Wifi AP, you can use **wpa_passphrase** from your linux box
+* edit /etc/network/interfaces and add your SSID and password in order to use connect to your Wifi
+
+Generate wpa-psk for Wifi AP, you can use *wpa_passphrase* from your linux box
 
 
 Generate like so:
@@ -70,11 +71,11 @@ To do after first boot (Advanced users):
 
 # Tips
 
-    * Board runs at ~60ºC when idle with HDMI, ~40ºC without HDMI enabled (*without heatsink*)
-    * issue in shell on first login: *sudo apt-get update && sudo apt-get upgrade*
-      It is always a good idea to issue a: **sudo shutdown -h now** (and wait for the Red led Heartbeat to stop and only then unplug power)
-    * If you have trouble with Wifi, i suggest read **Debian Bug report logs - #892229**
-      Regulatory.db needs to be generated somehow, until wireless-regdb is updated or rebuild it yourself. 
+* Board runs at ~60ºC when idle with HDMI, ~40ºC without HDMI enabled (*without heatsink*)
+* issue in shell on first login: *sudo apt-get update && sudo apt-get upgrade*
+  It is always a good idea to issue a: **sudo shutdown -h now** (and wait for the Red led Heartbeat to stop and only then unplug power)
+* If you have trouble with Wifi, i suggest read **Debian Bug report logs - #892229**
+  Regulatory.db needs to be generated somehow, until wireless-regdb is updated or rebuild it yourself. 
 
 
 # Basic instructions to flash firmware to SD CARD
