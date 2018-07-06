@@ -155,9 +155,9 @@ Before you boot the Image, please edit **/etc/network/interfaces**
 
 
 	iface wlan0 inet dhcp
-	wpa-ssid **SSID** <== change this
+	wpa-ssid SSID <== change this
 	#psk="1234567890"
-	wpa-psk **93c8ff514dc02ae4944f89424d7b0d94f42ab3245cc413755ab655b8e344a2d9** <== change this
+	wpa-psk 93c8ff514dc02ae4944f89424d7b0d94f42ab3245cc413755ab655b8e344a2d9 <== change this
 	dns-nameservers 8.8.8.8 8.8.4.4
 	wireless-power off
 
@@ -221,6 +221,19 @@ You can add FRONTBUFFER_LOCKING=1 to prevent tearing before running benchmark:
 # Installing a Full Desktop environment
 
 After you setup a connection to internet, you can install a Desktop environment
+
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+	sync
+	sudo apt-get install lxde
+
+Wait until it finished and issue:
+
+	sync
+	sudo shutdown -h now (wait for the heartbeat to stop and cut power)
+
+Reboot and you have LXDE Desktop
+
 
 # Credits
 Kernel 4.17.4 based on mainline kernel (https://www.kernel.org/).
