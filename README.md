@@ -6,9 +6,9 @@ The idea behind this firmware is to have a very basic sd card image and add pack
 
 The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
 
-v1 is Kernel 4.15.y
+* v1 is Kernel 4.15.y
 
-**v2 is Kernel 4.17.y**
+* **v2 is Kernel 4.17.y**
 
 # What's new with this Image v2
 Image updated to **Kernel 4.17.4** and has the following working:
@@ -17,8 +17,8 @@ Image updated to **Kernel 4.17.4** and has the following working:
     * mali (3D GPU) - fbdev only (Thanks to Maxime Ripard from bootlin)
     * eth0 up
     * wlan0 up
-    * i2c enabled
-    * spi enabled
+    * i2c enabled ( /dev/i2c-0 and /dev/i2c-1 )
+    * spi enabled ( /dev/spidev0.0 )
     * bare minimum image. (**30 Mbytes of RAM used**)
     * new rootfs from scratch
     * ssh enabled
