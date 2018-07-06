@@ -26,7 +26,7 @@ Image updated to **Kernel 4.17.4** and has the following working:
 Known issues:
     
     * Hit ENTER twice to see the login prompt if you get a blank screen
-    * Boot with your monitor/display turned before you power the board
+    * Boot with your monitor/display turned ON before you power the board
     * HDMI driver is under development, Jernej (the dev. person behind the driver)
       has given some tips to fix this issue.
     * Debian Bug report logs - #892229
