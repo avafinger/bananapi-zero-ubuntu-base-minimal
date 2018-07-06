@@ -72,13 +72,14 @@ To do after first boot (Advanced users):
 # Tips
 
 * Board runs at ~60ºC when idle with HDMI, ~40ºC without HDMI enabled (*without heatsink*)
+
 * issue in shell on first login: *sudo apt-get update && sudo apt-get upgrade*
 
-It is always a good idea to issue a: **sudo shutdown -h now** (and wait for the Red led Heartbeat to stop and only then unplug power)
+  It is always a good idea to issue a: **sudo shutdown -h now** (and wait for the Red led Heartbeat to stop and only then unplug power)
 
 * If you have trouble with Wifi, i suggest read **Debian Bug report logs - #892229**
 
-Regulatory.db needs to be generated somehow, until wireless-regdb is updated or rebuild it yourself. 
+  Regulatory.db needs to be generated somehow, until wireless-regdb is updated or rebuild it yourself. 
 
 
 # Basic instructions to flash firmware to SD CARD
