@@ -132,6 +132,8 @@ To do after first boot (Advanced users):
 
 * flash Image to sd card (**ssh enabled**):
 
+		cat rootfs_kernel_4.17.y.tar.gz.* > rootfs_kernel_4.17.y.tar.gz
+
 		sudo ./flash_sdcard_m2z_v2.sh /dev/sdc
 
 
@@ -221,6 +223,12 @@ You can add FRONTBUFFER_LOCKING=1 to prevent tearing before running benchmark:
 
 	export FRONTBUFFER_LOCKING=1
 
+
+[![mali bechmark screenshot 1](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/mali1.png)]
+
+[![mali bechmark screenshot 2](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/mali2.png)]
+
+[![mali bechmark screenshot 3](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/mali3.png)]
 
 # Installing a Full Desktop environment
 
