@@ -9,8 +9,9 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 * v1 is Kernel 4.15.y
 
 * **v2 is Kernel 4.17.y**
-For convenience, an 8GB SD CARD Image is at https://mega.nz/#!obIAVQiA!G0CCABkLunCcG8hEqMf7NfjTBK1jgMytt2f0VdtOl08
-Use 7zip to unzip it and flash it with **etcher** or win32imagewriter (**Win32DiskImager**)
+  For convenience, an 8GB SD CARD Image is at https://mega.nz/#!obIAVQiA!G0CCABkLunCcG8hEqMf7NfjTBK1jgMytt2f0VdtOl08
+
+  Use 7zip to unzip it and flash it with **etcher** or win32imagewriter (**Win32DiskImager**)
 
 # What's new with this Image v2
 Image updated to **Kernel 4.17.4** and has the following working:
