@@ -14,6 +14,20 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 
   Use 7zip to unzip it and flash it with **etcher** or win32imagewriter (**Win32DiskImager**)
 
+  **v2 stable kernel 4.17.9 update**
+
+
+	sudo dpkg -i linux-image-4.17.9-m2z_1.0-2.deb
+
+
+   and then:
+
+
+	sync && sudo reboot
+
+
+Things are set back to normal Temp on this kernel update.
+
 # What's new with this Image v2
 Image updated to **Kernel 4.17.4** and has the following working:
 
