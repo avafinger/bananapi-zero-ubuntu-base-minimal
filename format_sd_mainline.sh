@@ -21,7 +21,7 @@ function pt_ok()
 }
 
 
-
+mmc="mmcblk"
 out="$1"
 
 if [ -z "$out" ]; then
@@ -35,6 +35,12 @@ if [ $UID -ne 0 ]
     exit
 fi
 
+if [[ $out == *$mmc* ]];
+then
+part="p"
+else
+part=""
+fi
 
 pt_info "Umounting $out, please wait..."
 sync
@@ -81,13 +87,13 @@ sync
 
 pt_warn "Formating $out ..."
 # Create boot file system (VFAT)
-dd if=/dev/zero bs=1M count=${boot_size} of=${out}1
-mkfs.ext4 -F -b 4096 -E stride=2,stripe-width=1024 -L boot ${out}1
+dd if=/dev/zero bs=1M count=${boot_size} of=${out}${part}1
+mkfs.ext4 -F -b 4096 -E stride=2,stripe-width=1024 -L boot ${out}${part}1
 
 # Create ext4 file system for rootfs
-mkfs.ext4 -F -b 4096 -E stride=2,stripe-width=1024 -L rootfs ${out}2
+mkfs.ext4 -F -b 4096 -E stride=2,stripe-width=1024 -L rootfs ${out}${part}2
 sync
-#sudo tune2fs -O ^has_journal ${out}2
+#sudo tune2fs -O ^has_journal ${out}${part}2
 #sync
 
 pt_ok "Done - Geometry created and sd card '$out' formatted, now flash the image with ./flash_sd_ng.sh"
