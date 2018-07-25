@@ -16,13 +16,15 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 
 *  **v2 stable kernel 4.17.9 update**
 
-
-	sudo dpkg -i linux-image-4.17.9-m2z_1.0-2.deb
-
-
+   Upgrading kernel works best in steps. First move to 4.17.8
+   
+	sudo dpkg -i linux-image-4.17.8-m2z_1.0-1.deb
    and then:
-
-
+   	sync && sudo reboot
+	
+   Next upgrade to 4.17.9
+	sudo dpkg -i linux-image-4.17.9-m2z_1.0-2.deb
+   and then:
 	sync && sudo reboot
 
 
