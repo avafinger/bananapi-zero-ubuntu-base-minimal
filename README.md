@@ -14,7 +14,7 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 
   Use 7zip to unzip it and flash it with **etcher** or win32imagewriter (**Win32DiskImager**)
 
-*  **v2 stable kernel 4.17.12 update**
+* **v2 stable kernel 4.17.12 update**
 
    
 	sudo dpkg -i linux-image-4.17.12-m2z_1.0-5.deb
