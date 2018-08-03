@@ -1,7 +1,7 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.17.y (mainline 4.17.4)
 
-This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.4 with some patchs applied.
+This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.4 with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
 
 The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
@@ -262,7 +262,7 @@ Reboot and you have LXDE Desktop
 
 
 # Credits
-Kernel 4.17.4 based on mainline kernel (https://www.kernel.org/).
+Kernel 4.17.12 based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
 
 Mali based on MRipard (Bootlin)
 
