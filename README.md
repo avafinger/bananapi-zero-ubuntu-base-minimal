@@ -26,10 +26,20 @@ The Image comes with the minimum packages but you can install a full Desktop on 
    	sync && sudo reboot
 	
 
+* **v3 stable kernel 4.18.4 upgrade**
+
+   
+	sudo dpkg -i linux-image-4.18.4-m2z_1.0-7.deb
 
 
-# What's new with this Image v2
-Image updated to **Kernel 4.17.4** and has the following working:
+   and then:
+
+
+   	sync && sudo reboot
+
+
+# What's new with this Image v3
+Image updated to **Kernel 4.18.4** and has the following working:
 
     * framebuffer with 1920x1080
     * mali (3D GPU) - fbdev only (Thanks to Maxime Ripard from bootlin)
@@ -40,6 +50,21 @@ Image updated to **Kernel 4.17.4** and has the following working:
     * bare minimum image. (**30 Mbytes of RAM used**)
     * new rootfs from scratch
     * ssh enabled
+    * new operating-points-v2 instead of old one (experimental)
+
+# What's new with this Image v2
+Image updated to **Kernel 4.17.17** and has the following working:
+
+    * framebuffer with 1920x1080
+    * mali (3D GPU) - fbdev only (Thanks to Maxime Ripard from bootlin)
+    * eth0 up
+    * wlan0 up
+    * i2c enabled ( /dev/i2c-0 and /dev/i2c-1 )
+    * spi enabled ( /dev/spidev0.0 )
+    * bare minimum image. (**30 Mbytes of RAM used**)
+    * new rootfs from scratch
+    * ssh enabled
+    * ZRAM / TUN modules enabled (but not configured)
 
 Known issues:
     
