@@ -41,20 +41,22 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 * **v4 stable kernel 4.18.6 upgrade**
 
    
-	sudo dpkg -i linux-image-4.18.6-m2z-otg-gadget_1.0-11.deb
+		sudo dpkg -i linux-image-4.18.6-m2z-otg-gadget_1.0-11.deb
 
 
    and then:
 
 
-   	sync && sudo shutdown -h now
-	then power cicle the board
+	   	sync && sudo shutdown -h now
+		then power cicle the board
 
 
 # What's new with this Image v4
 Image updated to **Kernel 4.18.6** and has the following working:
+
     * operating-points-v2 working as it should (next series will be 4.19.y)
     * attempt to get bt working
+
 
 
 # What's new with this Image v3
