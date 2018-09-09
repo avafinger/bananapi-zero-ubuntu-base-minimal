@@ -1,5 +1,5 @@
 # bananapi-zero-ubuntu-base-minimal
-BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.17.y (mainline 4.17.4)
+BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.18.y (mainline)
 
 This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.4 with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
@@ -17,25 +17,31 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 * **v2 stable kernel 4.17.12 update**
 
    
-	sudo dpkg -i linux-image-4.17.12-m2z_1.0-5.deb
+		sudo dpkg -i linux-image-4.17.12-m2z_1.0-5.deb
 
 
    and then:
 
 
-   	sync && sudo reboot
+		sync && sudo shutdown -h now
+		
+
+power cicle the board
 	
 
 * **v3 stable kernel 4.18.4 upgrade**
 
    
-	sudo dpkg -i linux-image-4.18.4-m2z_1.0-7.deb
+		sudo dpkg -i linux-image-4.18.4-m2z_1.0-7.deb
 
 
    and then:
 
 
-   	sync && sudo reboot
+		sync && sudo shutdown -h now
+		
+
+power cicle the board
 
 
 * **v4 stable kernel 4.18.6 upgrade**
@@ -47,8 +53,10 @@ The Image comes with the minimum packages but you can install a full Desktop on 
    and then:
 
 
-	   	sync && sudo shutdown -h now
-		then power cicle the board
+		sync && sudo shutdown -h now
+		
+
+power cicle the board
 
 
 # What's new with this Image v4
