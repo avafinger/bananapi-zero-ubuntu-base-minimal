@@ -66,6 +66,16 @@ Image updated to **Kernel 4.18.6** and has the following working:
     * attempt to get bt working
 
 
+Configuring ZRAM for the memory hungry stuffs
+
+		sudo apt-get install zram-config
+		sync && sudo reboot
+
+On next reboot you will see if ZRAM is active:
+
+		ubuntu@bpi-m2z:~$ ls /dev/zr*
+		/dev/zram0  /dev/zram1  /dev/zram2  /dev/zram3
+
 
 # What's new with this Image v3
 Image updated to **Kernel 4.18.4** and has the following working:
