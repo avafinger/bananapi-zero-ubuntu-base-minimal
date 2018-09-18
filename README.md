@@ -44,23 +44,98 @@ power cicle the board
 power cicle the board
 
 
-* **v4 stable kernel 4.18.6 upgrade**
+* **v4 stable kernel 4.18.8 upgrade**
+
+Before upgrade, get rid of old kernel image not in use and check available space in /boot
+
+
+		df -lh
+		Filesystem      Size  Used Avail Use% Mounted on
+		/dev/mmcblk0p2   15G  631M   13G   5% /
+		devtmpfs        183M     0  183M   0% /dev
+		tmpfs           248M     0  248M   0% /dev/shm
+		tmpfs           248M   11M  237M   5% /run
+		tmpfs           5.0M     0  5.0M   0% /run/lock
+		tmpfs           248M     0  248M   0% /sys/fs/cgroup
+		/dev/mmcblk0p1   93M   64M   23M  74% /boot
+
+
+Make sure you have enough free space left, if not, issue in shell:
+
+		sudo dpkg -l | grep linux-image
+		ii  linux-image-4.17.12-m2z           1.0-5                                      armhf        Linux kernel 4.17.12-m2z
+		ii  linux-image-4.17.8-m2z            1.0-1                                      armhf        Linux kernel 4.17.8-m2z
+		ii  linux-image-4.17.9-m2z            1.0-2                                      armhf        Linux kernel 4.17.9-m2z
+		ii  linux-image-4.18.6-m2z-otg-gadget 1.0-11                                     armhf        Linux kernel 4.18.6-m2z-otg-gadget
+
+
+and check the current kernel you are running:
+
+
+		uname -r 
+		4.18.6-m2z-otg-gadget
+
+
+so it is safe to get rid of unused kernel and free some space for the new one you want to install:
+
+
+		sudo dpkg -r linux-image-4.17.12-m2z
+		(Reading database ... 35990 files and directories currently installed.)
+		Removing linux-image-4.17.12-m2z (1.0-5) ...
+
+
+and now install the latest kernel:
 
    
-		sudo dpkg -i linux-image-4.18.6-m2z-otg-gadget_1.0-11.deb
+		sudo dpkg -i linux-image-4.18.8-m2z-otg-gadget_1.0-12.deb
+		Selecting previously unselected package linux-image-4.18.8-m2z-otg-gadget.
+		(Reading database ... 33740 files and directories currently installed.)
+		Preparing to unpack linux-image-4.18.8-m2z-otg-gadget_1.0-12.deb ...
+		INFO: Updating Kernel 4.18.6-m2z-otg-gadget to 4.18.8-m2z-otg-gadget
+		INFO: Updating...
+		Unpacking linux-image-4.18.8-m2z-otg-gadget (1.0-12) ...
+		Setting up linux-image-4.18.8-m2z-otg-gadget (1.0-12) ...
+		OK: Kernel upgrade success! Please reboot with: sync && sudo reboot
 
 
-   and then:
+
+and then:
+
+
+
+
+		sync && sudo reboot 
+
+
+
+
+or better 
+
 
 
 		sync && sudo shutdown -h now
+
+
+
+
+power cicle the board and check kernel version again:
+
+
+
+
+		uname -r 
+		4.18.8-m2z-otg-gadget
+
+
+
+
 		
 
-power cicle the board
+
 
 
 # What's new with this Image v4
-Image updated to **Kernel 4.18.6** and has the following working:
+Image updated to **Kernel 4.18.8** and has the following working:
 
     * operating-points-v2 working as it should (next series will be 4.19.y)
     * attempt to get bt working
