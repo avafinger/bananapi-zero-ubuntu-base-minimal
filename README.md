@@ -131,6 +131,28 @@ power cicle the board and check kernel version again:
 
 		
 
+* **v5 mailine kernel 4.19.0 upgrade**
+
+
+
+
+		sudo dpkg -i linux-image-4.19.0-m2z-otg-gadget_1.0-13.deb
+		sync && sudo reboot 
+
+
+
+
+
+# What's new with this Image v5 (experimental)
+Image upgraded to **Kernel 4.19.0**
+
+    * operating-points-v2 working as it should (next series will be 4.19.y)
+    * new devfreq temp
+    * cma memory-reservation for mali (need a revision)
+
+Issue:
+	
+    * mali does not work, freezes kernel completely (don't use it)
 
 
 
