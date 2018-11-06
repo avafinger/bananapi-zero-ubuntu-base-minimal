@@ -1,5 +1,5 @@
 # bananapi-zero-ubuntu-base-minimal
-BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.18.y (mainline)
+BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.19.y (mainline - stable)
 
 This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.4 with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
@@ -141,6 +141,25 @@ power cicle the board and check kernel version again:
 
 
 
+
+* **v6 mailine kernel 4.19.1 (stable) upgrade**
+
+
+
+
+		sudo dpkg -i linux-image-4.19.1-m2z-otg-gadget_1.0-14.deb
+		sync && sudo reboot 
+
+
+
+
+
+# What's new with this Image v6 (experimental)
+Image upgraded to **Kernel 4.19.1**
+
+ 
+   * operating-points-v2 (480 Mhz ~ 1008 MHz)
+   * mali removed
 
 
 # What's new with this Image v5 (experimental)
