@@ -152,6 +152,39 @@ power cicle the board and check kernel version again:
 
 
 
+* **v7 mailine kernel 4.20.0-rc2 (mainline) upgrade**
+
+
+
+
+		sudo dpkg -i linux-image-4.20.0-rc2-m2z-otg-gadget_1.0-15.deb
+		sync && sudo reboot 
+
+
+
+rebuild bpi-m2z_boot.scr with:
+
+
+		edit bpi-m2-zero_boot.cmd and change:
+
+		setenv extra "no_console_suspend consoleblank=0 drm_leak_fbdev_smem=1"
+		setenv bootargs "console=ttyS0,115200 earlyprintk rootfstype=ext4 root=/dev/mmcblk0p2 rw rootwait fsck.repair=${fsck.repair} panic=10 ${extra}"
+		bootz ${kernel_addr} ${ramdisk_addr}:${ramdisk_size} ${dtb_addr}
+
+
+rebuild with:
+
+
+		sudo mkimage -C none -A arm -T script -d bpi-m2-zero_boot.cmd bpi-m2-zero_boot.scr
+
+
+# What's new with this Image v7 (experimental)
+Image upgraded to **Kernel 4.20-rc2**
+
+ 
+   * operating-points-v2 (240 Mhz ~ 1008 MHz) - testing only
+   * attempt to make mali work
+   * Bluetooth (need to load hci_uart module and install Bluez tools)
 
 
 # What's new with this Image v6 (experimental)
