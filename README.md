@@ -177,6 +177,17 @@ rebuild with:
 
 		sudo mkimage -C none -A arm -T script -d bpi-m2-zero_boot.cmd bpi-m2-zero_boot.scr
 
+
+* **v8 mailine kernel 4.20.0-rc3 (mainline) upgrade**
+
+
+
+
+		sudo dpkg -i linux-image-4.20.0-rc3-m2z-otg-gadget_1.0-16.deb
+		sync && sudo reboot 
+
+
+
 # What's new with this Image v8 (experimental)
 Image upgraded to **Kernel 4.20-rc3**
 
