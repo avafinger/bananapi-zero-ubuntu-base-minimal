@@ -510,8 +510,8 @@ Edit the file /etc/modules and add hci_uart:
 
 * in shell type:
 
-	sudo su (to become root)
-	brcm_patchram_plus -d --patchram /lib/firmware/ap6212/bcm43438a1.hcd --enable_hci --bd_addr 11:22:33:44:55:66 --no2bytes --tosleep 5000 /dev/ttyS1
+		sudo su (to become root)
+		brcm_patchram_plus -d --patchram /lib/firmware/ap6212/bcm43438a1.hcd --enable_hci --bd_addr 11:22:33:44:55:66 --no2bytes --tosleep 5000 /dev/ttyS1
 
 wait untill it finish with **"Done setting line discpline"** then:
 
