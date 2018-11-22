@@ -504,7 +504,7 @@ documentation we do it manually) :
 
 * Load hci_uart kernel module
 
-Edit the file /etc/modules and add hci_uart:
+Edit the file /etc/modules and add hci_uart & rfcomm:
 
 		# /etc/modules: kernel modules to load at boot time.
 		#
@@ -515,6 +515,7 @@ Edit the file /etc/modules and add hci_uart:
 		#xradio_wlan
 		brcmfmac
 		hci_uart
+		rfcomm
 
 
 * Boot with the new /etc/modules
