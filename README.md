@@ -504,7 +504,7 @@ documentation we do it manually) :
 
 * Load hci_uart kernel module
 
-Edit the file /etc/modules and add hci_uart & rfcomm:
+Edit the file /etc/modules and add bluetooth & hci_uart & rfcomm:
 
 		# /etc/modules: kernel modules to load at boot time.
 		#
@@ -514,6 +514,7 @@ Edit the file /etc/modules and add hci_uart & rfcomm:
 		g_serial
 		#xradio_wlan
 		brcmfmac
+		bluetooth
 		hci_uart
 		rfcomm
 
@@ -527,13 +528,379 @@ Edit the file /etc/modules and add hci_uart & rfcomm:
 
 wait untill it finish with **"Done setting line discpline"** (CTRL+C to end) and then:
 
-	hciattach /dev/ttyS1 any
+		hciattach /dev/ttyS1 any
 
 We should have now our Bluetooth ready, you can check:
 
-	hcitool devi
-	Devices:
-		hci0	11:22:33:44:55:66
+		hcitool devi
+		Devices:
+			hci0	11:22:33:44:55:66
+
+
+# Bluetooth - How to pair a Bluetooth Phone with command line
+
+We are going to test our bluetooth setup conecting our board to a Phone (pair with a Phone).
+In a Desktop environment we have Blueman which would do it automagically but installing it would require a lot of packages
+and our goal here is to have the minimum installed otherwise you go with a complete Desktop.
+
+For this, it is necessary to install pulseaudio or you will not be able to connect to a phone. 
+(i think for keyboard or mouse is ok without pulse).
+
+In order to have pulseaudio working we need to install ALSA and make it work.
+
+
+		sudo apt-get install alsa-utils alsamixer libasound2 alsa-base
+
+
+Edit (or create) a file /etc/asond.conf with the content:
+
+
+		pcm.!default {
+		    type hw
+		    card 0
+		    device 0
+		}
+		 
+		ctl.!default {
+		    type hw
+		    card 0
+		}
+
+
+sync && reboot.
+
+
+Check device:
+
+
+		aplay -l
+		**** List of PLAYBACK Hardware Devices ****
+		card 0: Codec [H3 Audio Codec], device 0: CDC PCM Codec-0 []
+		  Subdevices: 1/1
+		  Subdevice #0: subdevice #0
+
+
+
+
+We can check if ALSA is working, type in shell:
+
+
+
+		alsamixer
+		and un-mute and turn up the Line up and everything
+
+
+
+and review:
+
+
+		sudo amixer
+		Simple mixer control 'Line In',0
+		  Capabilities: pvolume pvolume-joined pswitch cswitch
+		  Playback channels: Front Left - Front Right
+		  Capture channels: Front Left - Front Right
+		  Limits: Playback 0 - 7
+		  Front Left: Playback 5 [71%] [3.00dB] [off] Capture [off]
+		  Front Right: Playback 5 [71%] [3.00dB] [off] Capture [off]
+		Simple mixer control 'Line Out',0
+		  Capabilities: pvolume pvolume-joined pswitch
+		  Playback channels: Front Left - Front Right
+		  Limits: Playback 0 - 31
+		  Mono:
+		  Front Left: Playback 25 [81%] [-9.00dB] [on]
+		  Front Right: Playback 25 [81%] [-9.00dB] [on]
+		Simple mixer control 'Line Out Source',0
+		  Capabilities: penum
+		  Items: 'Stereo' 'Mono Differential'
+		  Item0: 'Stereo'
+		  Item1: 'Stereo'
+		Simple mixer control 'Mic1',0
+		  Capabilities: pvolume pvolume-joined pswitch cswitch
+		  Playback channels: Front Left - Front Right
+		  Capture channels: Front Left - Front Right
+		  Limits: Playback 0 - 7
+		  Front Left: Playback 3 [43%] [0.00dB] [off] Capture [off]
+		  Front Right: Playback 3 [43%] [0.00dB] [off] Capture [off]
+		Simple mixer control 'Mic1 Boost',0
+		  Capabilities: volume volume-joined
+		  Playback channels: Mono
+		  Capture channels: Mono
+		  Limits: 0 - 7
+		  Mono: 4 [57%] [33.00dB]
+		Simple mixer control 'Mic2',0
+		  Capabilities: pvolume pvolume-joined pswitch cswitch
+		  Playback channels: Front Left - Front Right
+		  Capture channels: Front Left - Front Right
+		  Limits: Playback 0 - 7
+		  Front Left: Playback 3 [43%] [0.00dB] [off] Capture [off]
+		  Front Right: Playback 3 [43%] [0.00dB] [off] Capture [off]
+		Simple mixer control 'Mic2 Boost',0
+		  Capabilities: volume volume-joined
+		  Playback channels: Mono
+		  Capture channels: Mono
+		  Limits: 0 - 7
+		  Mono: 4 [57%] [33.00dB]
+		Simple mixer control 'Mixer',0
+		  Capabilities: cswitch
+		  Capture channels: Front Left - Front Right
+		  Front Left: Capture [off]
+		  Front Right: Capture [off]
+		Simple mixer control 'Mixer Reversed',0
+		  Capabilities: cswitch
+		  Capture channels: Front Left - Front Right
+		  Front Left: Capture [off]
+		  Front Right: Capture [off]
+		Simple mixer control 'ADC Gain',0
+		  Capabilities: cvolume cvolume-joined
+		  Capture channels: Mono
+		  Limits: Capture 0 - 7
+		  Mono: Capture 3 [43%] [0.00dB]
+		Simple mixer control 'DAC',0
+		  Capabilities: pvolume pvolume-joined pswitch
+		  Playback channels: Front Left - Front Right
+		  Limits: Playback 0 - 63
+		  Mono:
+		  Front Left: Playback 45 [71%] [-20.88dB] [on]
+		  Front Right: Playback 45 [71%] [-20.88dB] [on]
+		Simple mixer control 'DAC Reversed',0
+		  Capabilities: pswitch
+		  Playback channels: Front Left - Front Right
+		  Mono:
+		  Front Left: Playback [off]
+		  Front Right: Playback [off]
+
+
+Testing ALSA:
+
+
+
+		aplay /usr/share/sounds/alsa/Front_Center.wav             
+		Playing WAVE '/usr/share/sounds/alsa/Front_Center.wav' : Signed 16 bit Little Endian, Rate 48000 Hz, Mono
+
+
+
+Now install pulse:
+
+
+
+		sudo apt-get install pulseaudio pulseaudio-module-bluetooth
+
+
+sync && reboot.
+
+
+Now check if pulse is running:
+
+
+		ps -e|grep pulse
+		1187 ?        00:00:00 pulseaudio
+
+
+
+If everything is OK (if not, you should go back and figure out what went wrong) we can now pair with a phone using bluetooth.
+Type in shell (if you have not done this yet):
+
+
+		sudo su (become root)
+		brcm_patchram_plus -d --patchram /lib/firmware/ap6212/bcm43438a1.hcd --enable_hci --bd_addr 11:22:33:44:55:66 --no2bytes --tosleep 5000 /dev/ttyS1
+		Done setting line discpline (^C)
+		hciattach /dev/ttyS1 any
+		hciconfig list
+		hci0:	Type: BR/EDR  Bus: UART
+			BD Address: 11:22:33:44:55:66  ACL MTU: 1021:8  SCO MTU: 64:1
+			UP RUNNING 
+			RX bytes:1214 acl:0 sco:0 events:42 errors:0
+			TX bytes:756 acl:0 sco:0 commands:42 errors:0
+		hciconfig -a
+		hci0:	Type: BR/EDR  Bus: UART
+			BD Address: 11:22:33:44:55:66  ACL MTU: 1021:8  SCO MTU: 64:1
+			UP RUNNING 
+			RX bytes:934 acl:0 sco:0 events:39 errors:0
+			TX bytes:744 acl:0 sco:0 commands:39 errors:0
+			Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
+			Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+			Link policy: RSWITCH SNIFF 
+			Link mode: SLAVE ACCEPT 
+			Name: 'bpi-m2z'
+			Class: 0x000000
+			Service Classes: Unspecified
+			Device Class: Miscellaneous, 
+			HCI Version: 4.0 (0x6)  Revision: 0x6a
+			LMP Version: 4.0 (0x6)  Subversion: 0x2209
+			Manufacturer: Broadcom Corporation (15)
+
+
+
+We are ready to pair. Type in shell (with your phone with bluetooth on):
+
+		bluetoothctl -a
+		[NEW] Controller 22:22:33:44:55:66 bpi-m2z [default]
+		Agent registered
+		[bluetooth]# devices
+		[bluetooth]# list
+		Controller 22:22:33:44:55:66 bpi-m2z [default]
+		[bluetooth]# power on
+		Changing power on succeeded
+		[bluetooth]# agent on
+		Agent is already registered
+		[bluetooth]# default-agent
+		Default agent request successful
+		[bluetooth]# scan on
+		Discovery started
+		[CHG] Controller 22:22:33:44:55:66 Discovering: yes
+		[NEW] Device 00:17:CA:F7:38:18 Haier HW-W910
+		[bluetooth]# pair 00:17:CA:F7:38:18
+		Attempting to pair with 00:17:CA:F7:38:18
+		[CHG] Device 00:17:CA:F7:38:18 Connected: yes
+		Request confirmation
+		[agent] Confirm passkey 736813 (yes/no): yes
+		[CHG] Device 00:17:CA:F7:38:18 Modalias: usb:v000Ap0000d0000
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001105-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 0000110c-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001112-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001116-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 0000112f-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001132-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001200-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+		[CHG] Device 00:17:CA:F7:38:18 Paired: yes
+		Pairing successful
+		[CHG] Device 00:17:CA:F7:38:18 Connected: no
+		[bluetooth]# devices
+		Device 00:17:CA:F7:38:18 Haier HW-W910
+		[bluetooth]# list
+		Controller 22:22:33:44:55:66 bpi-m2z [default]
+		[bluetooth]# info 00:17:CA:F7:38:18
+		Device 00:17:CA:F7:38:18
+			Name: Haier HW-W910
+			Alias: Haier HW-W910
+			Class: 0x5a020c
+			Icon: phone
+			Paired: yes
+			Trusted: no
+			Blocked: no
+			Connected: no
+			LegacyPairing: no
+			UUID: OBEX Object Push          (00001105-0000-1000-8000-00805f9b34fb)
+			UUID: Audio Source              (0000110a-0000-1000-8000-00805f9b34fb)
+			UUID: A/V Remote Control Target (0000110c-0000-1000-8000-00805f9b34fb)
+			UUID: Headset AG                (00001112-0000-1000-8000-00805f9b34fb)
+			UUID: NAP                       (00001116-0000-1000-8000-00805f9b34fb)
+			UUID: Handsfree Audio Gateway   (0000111f-0000-1000-8000-00805f9b34fb)
+			UUID: Phonebook Access Server   (0000112f-0000-1000-8000-00805f9b34fb)
+			UUID: Message Access Server     (00001132-0000-1000-8000-00805f9b34fb)
+			UUID: PnP Information           (00001200-0000-1000-8000-00805f9b34fb)
+			UUID: Generic Access Profile    (00001800-0000-1000-8000-00805f9b34fb)
+			UUID: Generic Attribute Profile (00001801-0000-1000-8000-00805f9b34fb)
+			Modalias: usb:v000Ap0000d0000
+			RSSI: -42
+		[bluetooth]# list-attributes 00:17:CA:F7:38:18
+		[bluetooth]# connect 00:17:CA:F7:38:18
+		Attempting to connect to 00:17:CA:F7:38:18
+		[CHG] Device 00:17:CA:F7:38:18 Connected: yes
+		Connection successful
+		[Haier HW-W910]# list-attributes 00:17:CA:F7:38:18
+		[Haier HW-W910]# disconnect 00:17:CA:F7:38:18
+		Attempting to disconnect from 00:17:CA:F7:38:18
+		Successful disconnected
+		[CHG] Device 00:17:CA:F7:38:18 Connected: no
+		[bluetooth]# list-attributes 00:17:CA:F7:38:18
+		[bluetooth]# info 00:17:CA:F7:38:18
+		Device 00:17:CA:F7:38:18
+			Name: Haier HW-W910
+			Alias: Haier HW-W910
+			Class: 0x5a020c
+			Icon: phone
+			Paired: yes
+			Trusted: no
+			Blocked: no
+			Connected: no
+			LegacyPairing: no
+			UUID: OBEX Object Push          (00001105-0000-1000-8000-00805f9b34fb)
+			UUID: Audio Source              (0000110a-0000-1000-8000-00805f9b34fb)
+			UUID: A/V Remote Control Target (0000110c-0000-1000-8000-00805f9b34fb)
+			UUID: Headset AG                (00001112-0000-1000-8000-00805f9b34fb)
+			UUID: NAP                       (00001116-0000-1000-8000-00805f9b34fb)
+			UUID: Handsfree Audio Gateway   (0000111f-0000-1000-8000-00805f9b34fb)
+			UUID: Phonebook Access Server   (0000112f-0000-1000-8000-00805f9b34fb)
+			UUID: Message Access Server     (00001132-0000-1000-8000-00805f9b34fb)
+			UUID: PnP Information           (00001200-0000-1000-8000-00805f9b34fb)
+			UUID: Generic Access Profile    (00001800-0000-1000-8000-00805f9b34fb)
+			UUID: Generic Attribute Profile (00001801-0000-1000-8000-00805f9b34fb)
+			Modalias: usb:v000Ap0000d0000
+			RSSI: -42
+		[bluetooth]# connect 00:17:CA:F7:38:18
+		Attempting to connect to 00:17:CA:F7:38:18
+		[CHG] Device 00:17:CA:F7:38:18 Connected: yes
+		Connection successful
+		[Haier HW-W910]# trust 00:17:CA:F7:38:18
+		[CHG] Device 00:17:CA:F7:38:18 Trusted: yes
+		Changing 00:17:CA:F7:38:18 trust succeeded
+		[Haier HW-W910]# info 00:17:CA:F7:38:18
+		Device 00:17:CA:F7:38:18
+			Name: Haier HW-W910
+			Alias: Haier HW-W910
+			Class: 0x5a020c
+			Icon: phone
+			Paired: yes
+			Trusted: yes
+			Blocked: no
+			Connected: yes
+			LegacyPairing: no
+			UUID: OBEX Object Push          (00001105-0000-1000-8000-00805f9b34fb)
+			UUID: Audio Source              (0000110a-0000-1000-8000-00805f9b34fb)
+			UUID: A/V Remote Control Target (0000110c-0000-1000-8000-00805f9b34fb)
+			UUID: Headset AG                (00001112-0000-1000-8000-00805f9b34fb)
+			UUID: NAP                       (00001116-0000-1000-8000-00805f9b34fb)
+			UUID: Handsfree Audio Gateway   (0000111f-0000-1000-8000-00805f9b34fb)
+			UUID: Phonebook Access Server   (0000112f-0000-1000-8000-00805f9b34fb)
+			UUID: Message Access Server     (00001132-0000-1000-8000-00805f9b34fb)
+			UUID: PnP Information           (00001200-0000-1000-8000-00805f9b34fb)
+			UUID: Generic Access Profile    (00001800-0000-1000-8000-00805f9b34fb)
+			UUID: Generic Attribute Profile (00001801-0000-1000-8000-00805f9b34fb)
+			Modalias: usb:v000Ap0000d0000
+			RSSI: -42
+		[Haier HW-W910]# list-attributes 00:17:CA:F7:38:18
+		[Haier HW-W910]# untrust 00:17:CA:F7:38:18
+		[CHG] Device 00:17:CA:F7:38:18 Trusted: no
+		Changing 00:17:CA:F7:38:18 untrust succeeded
+		[Haier HW-W910]# disconnect 00:17:CA:F7:38:18
+		Attempting to disconnect from 00:17:CA:F7:38:18
+		Successful disconnected
+		[CHG] Device 00:17:CA:F7:38:18 Connected: no
+		[bluetooth]# remove 00:17:CA:F7:38:18
+		[DEL] Device 00:17:CA:F7:38:18 Haier HW-W910
+		Device has been removed
+		[bluetooth]# list
+		Controller 22:22:33:44:55:66 bpi-m2z [default]
+		[NEW] Device 00:17:CA:F7:38:18 Haier HW-W910
+		[bluetooth]# scan off
+		[CHG] Device 00:17:CA:F7:38:18 RSSI is nil
+		Discovery stopped
+		[CHG] Controller 22:22:33:44:55:66 Discovering: no
+		[bluetooth]# 
+		[bluetooth]# quit
+		Agent unregistered
+		[DEL] Controller 22:22:33:44:55:66 bpi-m2z [default]
+	
+
+And finally you can check the Services of your Bluetooth Phone:
+
+		dptool browse 00:17:CA:F7:38:18|grep "Service Name"
+		Service Name: Generic Access Profile
+		Service Name: Generic Attribute Profile
+		Service Name: Audio Source
+		Service Name: AVRCP TG
+		Service Name: Voice Gateway
+		Service Name: OBEX Object Push
+		Service Name: Voice Gateway
+		Service Name: OBEX Phonebook Access Server
+		Service Name: Network service
+		Service Name: SMS/MMS Message Access
+		Service Name: Email Message Access
 
 
 
