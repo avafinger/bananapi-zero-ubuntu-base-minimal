@@ -188,6 +188,23 @@ rebuild with:
 
 
 
+* **v9 mailine kernel 4.19.5 (stable) upgrade**
+
+
+
+		sudo dpkg -i linux-image-4.19.5-m2z-otg-gadget_1.0-19.deb
+		sync && sudo reboot 
+
+
+
+# What's new with this Image v9 (LTS experimental)
+
+
+
+   * mali fix (mali is back and working!)
+
+
+
 # What's new with this Image v8 (experimental)
 Image upgraded to **Kernel 4.20-rc3**
 
