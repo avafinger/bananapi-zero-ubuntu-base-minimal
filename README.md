@@ -196,6 +196,24 @@ rebuild with:
 		sync && sudo reboot 
 
 
+* **v10 mailine kernel 4.19.6 (stable) upgrade**
+
+deb file in Release v10, grab the file with: 
+
+
+		wget https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/download/v10/linux-image-4.19.6-m2z-otg-gadget_1.0-20.deb
+		sudo dpkg -i linux-image-4.19.6-m2z-otg-gadget_1.0-20.deb
+		sync && sudo reboot 
+
+
+# What's new with this Image v10 (LTS experimental)
+
+
+   * 4.19.6 (for testing)
+   * mali (experimental)
+
+
+
 
 # What's new with this Image v9 (LTS experimental)
 
