@@ -206,6 +206,25 @@ deb file in Release v10, grab the file with:
 		sync && sudo reboot 
 
 
+* **v11 mailine kernel 4.19.12 (stable) upgrade**
+
+deb file in Release v11, grab the file with: 
+
+
+		wget https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/download/v10/linux-image-4.19.12-m2z-otg-gadget_1.0-21.deb
+		sudo dpkg -i linux-image-4.19.12-m2z-otg-gadget_1.0-21.deb
+		sync && sudo reboot 
+
+
+# What's new with this Image v11 (LTS experimental)
+
+
+   * 4.19.12 (for testing)
+   * mali (experimental)
+
+
+
+
 # What's new with this Image v10 (LTS experimental)
 
 
