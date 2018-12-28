@@ -211,7 +211,7 @@ deb file in Release v10, grab the file with:
 deb file in Release v11, grab the file with: 
 
 
-		wget https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/download/v10/linux-image-4.19.12-m2z-otg-gadget_1.0-21.deb
+		wget https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/download/v11/linux-image-4.19.12-m2z-otg-gadget_1.0-21.deb
 		sudo dpkg -i linux-image-4.19.12-m2z-otg-gadget_1.0-21.deb
 		sync && sudo reboot 
 
@@ -221,7 +221,7 @@ deb file in Release v11, grab the file with:
 deb file in Release v12, grab the file with: 
 
 
-		wget https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/download/v10/linux-image-4.20.0-m2z-otg-gadget_1.0-22.deb
+		wget https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/download/v12/linux-image-4.20.0-m2z-otg-gadget_1.0-22.deb
 		sudo dpkg -i linux-image-4.20.0-m2z-otg-gadget_1.0-22.deb
 		sync && sudo reboot 
 
