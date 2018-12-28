@@ -625,7 +625,7 @@ In order to have pulseaudio working we need to install ALSA and make it work.
 		sudo apt-get install alsa-utils alsamixer libasound2 alsa-base
 
 
-Edit (or create) a file /etc/asond.conf with the content:
+Edit (or create) a file /etc/asound.conf with the content:
 
 
 		pcm.!default {
