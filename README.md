@@ -976,6 +976,45 @@ And finally you can check the Services of your Bluetooth Phone:
 		Service Name: Email Message Access
 
 
+# Enbale Bluetooth on next boot (permanently)
+
+To enable Bluetooth (BT) for every new boot, edit /etc/rc.local and add the command:
+
+		#!/bin/sh -e
+		#
+		# rc.local
+		#
+		# This script is executed at the end of each multiuser runlevel.
+		# Make sure that the script will "exit 0" on success or any other
+		# value on error.
+		#
+		# In order to enable or disable this script just change the execution
+		# bits.
+		#
+		# By default this script does nothing.
+		
+		# ------------------------
+		# ------ enable BT -------
+		# ------------------------
+		# borrowed from madscientist42
+		# Compute a BD_ADDR.  We're going to use pieces of the device serial number for the LAP part.
+		SERIAL=`cat /proc/device-tree/serial-number | cut -c9-`
+		B1=`echo $SERIAL | cut -c3-4`
+		B2=`echo $SERIAL | cut -c5-6`
+		B3=`echo $SERIAL | cut -c7-8`
+		BDADDR=`printf b8:27:eb:%02x:%02x:%02x $((0x$B1 ^ 0xaa)) $((0x$B2 ^ 0xaa)) $((0x$B3 ^ 0xaa))`
+		brcm_patchram_plus -d --patchram /lib/firmware/ap6212/bcm43438a1.hcd --enable_hci --bd_addr $BDADDR --no2bytes --tosleep 5000 /dev/ttyS1  > /tmp/bt.log 2>&1 &
+		# -- BT end --------------
+		
+		exit 0
+		#!/bin/bash
+
+
+Make sure /etc/rc.local has run permissions:
+
+		sudo chmod +x /etc/rc.local
+
+
 
 # Credits
 Kernel 4.20.0-rc3 is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
