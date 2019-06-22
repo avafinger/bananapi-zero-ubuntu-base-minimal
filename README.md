@@ -225,6 +225,64 @@ deb file in Release v12, grab the file with:
 		sudo dpkg -i linux-image-4.20.0-m2z-otg-gadget_1.0-22.deb
 		sync && sudo reboot 
 
+* **v13 mailine kernel 4.20.17-m2z (experimental) upgrade**
+
+    		https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v13
+
+# Mainline stable Kernel 4.20.17 (Kodi)
+
+This kernel is provided as a **POC** where you can build **Kodi**
+
+Mainline stable kernel 4.20.17 ready to build **Kodi**:
+
+ * Cedrus (VPU)
+ * Mali (GBM)
+ * hdmi-sound
+ * wifi + eth
+ * tools to test cedrus and gbm (pre-built)
+
+To test mali GBM you can run **kmscube**
+To test cedrus you can run **v4l2-request-test**
+
+# VPU test
+
+Testing cedrus on mainline is quite simple, run the tests below:
+
+    cd v4l2-request-test
+    sudo ./v4l2-request-test -l -f 25 -P ed-mpeg2
+
+or
+
+    sudo ./v4l2-request-test -l -f 25 -P caminandes-h265
+
+# Mali GBM test
+
+To test mali GBM you need to setup the mali blobs provided by https://github.com/bootlin/mali-blobs
+
+    sudo ./kmscube
+
+When you run the **kmscube** you will see a cube spinning
+
+ * Tools:
+
+    https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v14
+
+
+# What's new with this Image v14 (mainline experimental)
+
+
+   * 4.20.17 (for building Kodi)
+   * mali gbm (GPU)
+   * cedrus (VPU hw decoding)
+   * Wifi + eth
+   * hdmi-sound
+
+
+# What's new with this Image v13 (mainline experimental)
+
+
+   * 4.20.17-m2z (minimum kernel)
+   
 
 # What's new with this Image v12 (mainline experimental)
 
