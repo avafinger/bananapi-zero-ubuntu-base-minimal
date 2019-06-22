@@ -1,7 +1,7 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.19.y (mainline - stable)
 
-This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.4 with some patches applied.
+This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
 
 The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
@@ -266,6 +266,26 @@ When you run the **kmscube** you will see a cube spinning
  * Tools:
 
     https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v14
+
+# hdmi-sound
+
+To be able to acess and output sound to HDMI you need to update the file **/etc/asound.conf**
+
+pcm.!default {
+    type plug
+    slave {
+        pcm "hw:1,0"
+    }
+}
+		
+ctl.!default {
+   type hw
+   card 1
+} 
+
+Reboot and test the HDMI sound:
+
+	sudo aplay /usr/share/sounds/alsa/Front_Left.wav
 
 
 # What's new with this Image v14 (mainline experimental)
