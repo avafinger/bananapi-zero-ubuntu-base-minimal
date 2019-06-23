@@ -276,17 +276,17 @@ When you run the **kmscube** you will see a cube spinning
 
 To be able to acess and output sound to HDMI you need to update the file **/etc/asound.conf**
 
-pcm.!default {
-    type plug
-    slave {
-        pcm "hw:1,0"
-    }
-}
-		
-ctl.!default {
-   type hw
-   card 1
-} 
+	pcm.!default {
+	    type plug
+	    slave {
+		pcm "hw:1,0"
+	    }
+	}
+
+	ctl.!default {
+	   type hw
+	   card 1
+	} 
 
 Reboot and test the HDMI sound:
 
