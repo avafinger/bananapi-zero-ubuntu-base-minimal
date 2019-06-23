@@ -293,6 +293,16 @@ Reboot and test the HDMI sound:
 	sudo aplay /usr/share/sounds/alsa/Front_Left.wav
 
 
+Check for the codecs:
+
+  cat /proc/asound/cards
+
+	 0 [Codec          ]: H3_Audio_Codec - H3 Audio Codec
+			      H3 Audio Codec
+	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
+			      allwinner,hdmi
+
+
 # What's new with this Image v14 (mainline experimental)
 
 
