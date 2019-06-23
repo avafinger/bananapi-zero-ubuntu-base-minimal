@@ -233,6 +233,11 @@ deb file in Release v12, grab the file with:
 
 This kernel is provided as a **POC** where you can build **Kodi**
 
+**Atention**
+
+The mali blobs used for the mali **GBM** are not compatible with the mali **FBDEV**
+You are required to update the mali with the wayland mali to be able to use GBM
+
 Mainline stable kernel 4.20.17 ready to build **Kodi**:
 
  * Cedrus (VPU)
