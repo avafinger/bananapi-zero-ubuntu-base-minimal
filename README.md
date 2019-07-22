@@ -1107,7 +1107,66 @@ Make sure /etc/rc.local has run permissions:
 
 		sudo chmod +x /etc/rc.local
 
+# Build your own Kernel
+Here are the instructions for building your own kernel on board.
 
+ * Install tools
+
+       sudo apt-get install git bison flex bc device-tree-compiler
+
+ * Get a Kernel with support for this board, for example mainline kernel 5.2.0 or your own
+ * Get the patch or patch set and apply to your kernel if your kernel is not complete
+ * Get mali support from Bootlin
+ * Watch linux-sunxi for the latest changes and fixes
+
+**Create directory:**
+
+    mkdir -p linux
+    cd linux
+    export KVD=$PWD
+      
+Grab your kernel (here we get linus torvalds kernel 5.2 as an example):
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/refs/tags
+ 
+    wget https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-5.2.tar.gz
+    tar -xvpzf linux-5.2.tar.gz
+    cd linux-5.2
+       
+**Build:**
+
+    make sunxi_defconfig
+    #make  menuconfig (if you want to add or change kernel modules)
+    make  oldconfig
+    make INSTALL_MOD_PATH=output zImage 
+    make INSTALL_MOD_PATH=output dtbs
+    make INSTALL_MOD_PATH=output modules
+    make INSTALL_MOD_PATH=output modules_install
+    export KV=$(strings ./arch/arm/boot/Image |grep "Linux version"|awk '{print $3}')
+    make INSTALL_HDR_PATH=output/usr/src/linux-headers-${KV} headers_install
+
+**Install:**
+
+    sudo cp -vfr ./output/* /
+    sync
+    sudo cp -fv ./arch/arm/boot/zImage /boot/zImage_${KV}
+    sync
+    sudo cp -fv ./arch/arm/boot/dts/sun8i-h2-plus-bananapi-m2-zero.dtb /boot/bpi-m2-zero.dtb_${KV}
+    sync
+
+**Make it current kernel**
+
+    cd /boot
+    sudo ln -sf zImage_${KV} zImage
+    sudo ln -sf bpi-m2-zero.dtb_${KV} bpi-m2-zero.dtb
+    cd ${KVD}
+    sync
+    
+**Reboot**
+
+    sudo reboot
+
+You can add or change kernel modules at any time and modify your **dts** to get the hw peripherals to work properly.
+**From now on you are at your own.**
 
 # Credits
 Kernel 4.20.0-rc3 is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
