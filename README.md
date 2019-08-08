@@ -233,7 +233,7 @@ deb file in Release v12, grab the file with:
 
 This kernel is provided as a **POC** where you can build **Kodi**
 
-**Atention**
+**Attention**
 
 The mali blobs used for the mali **GBM** are not compatible with the mali **FBDEV**
 You are required to update the mali with the wayland mali to be able to use GBM
@@ -301,6 +301,26 @@ Check for the codecs:
 			      H3 Audio Codec
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
+
+# Mainline Kernel 5.3.0-rc3 (Kodi)
+
+This is mainline Kernel 5.3.0-rc3 ready to build and run Kodi.
+
+Bootlog: https://gist.github.com/avafinger/5a172aaac7a97d6ee186498cd74896cf
+
+Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v16
+
+
+# What's new with this Image v16 (mainline experimental)
+
+   * 5.3.0-rc3 (for building Kodi)
+   * mali gbm (GPU)
+   * cedrus (VPU hw decoding)
+   * Wifi + eth
+   * hdmi-sound
+   * DVFS
+   * thermal throttling
+
 
 
 # What's new with this Image v14 (mainline experimental)
