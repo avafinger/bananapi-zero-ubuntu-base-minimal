@@ -302,6 +302,13 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v16 mailine kernel 5.3.0-rc3 (experimental) upgrade**
+
+    deb package:
+    
+      https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v16
+
+
 # Mainline Kernel 5.3.0-rc3 (Kodi)
 
 This is mainline Kernel 5.3.0-rc3 ready to build and run Kodi.
