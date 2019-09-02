@@ -333,7 +333,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
 
     deb package:
     
-      https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v16
+      https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
 
 
 # Mainline Kernel 5.3.0-rc3 (Kodi)
