@@ -302,8 +302,34 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v18 mailine kernel 5.3.0-rc7 (experimental) upgrade**
 
-* **v17 mailine kernel 5.3.0-rc6 (experimental) upgrade**
+    deb package:
+    
+      https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.8
+
+
+# Mainline Kernel 5.3.0-rc7
+
+This is mainline Kernel 5.3.0-rc7.
+
+
+Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.8
+
+
+# What's new with this Image v18 (mainline experimental)
+
+   * 5.3.0-rc7 (minor update)
+   * mali gbm (GPU)
+   * cedrus (VPU hw decoding)
+   * Wifi + eth
+   * hdmi-sound
+   * DVFS
+   * thermal throttling
+   * Device Tree Overlays support
+
+
+* **v17 mailine kernel 5.3.0-rc7 (experimental) upgrade**
 
     deb package:
     
@@ -315,10 +341,10 @@ Check for the codecs:
 This is mainline Kernel 5.3.0-rc6.
 
 
-Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v16
+Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
 
 
-# What's new with this Image v16 (mainline experimental)
+# What's new with this Image v17 (mainline experimental)
 
    * 5.3.0-rc6 ()
    * mali gbm (GPU)
