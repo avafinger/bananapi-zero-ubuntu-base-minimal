@@ -313,8 +313,12 @@ Check for the codecs:
 
 This is mainline Kernel 5.3.0-rc7.
 
+Bootlo: https://gist.github.com/avafinger/9f6bee00e17b1f1d5d120e8b048eb40f
+Install the new Kernel (**tested**): https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.8
 
-Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.8
+Install instructions:
+
+    sudo dpkg -i linux-image-5.3.0-rc7_1.0-27.deb 
 
 
 # What's new with this Image v18 (mainline experimental)
