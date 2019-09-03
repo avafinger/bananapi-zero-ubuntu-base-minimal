@@ -329,9 +329,9 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
    * Device Tree Overlays support
 
 
-* **v17 mailine kernel 5.3.0-rc7 (experimental) upgrade**
+* **v17 mailine kernel 5.3.0-rc6 (experimental) upgrade**
 
-    deb package:
+    deb package (**BROKEN - DON'T USE**):
     
       https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
 
