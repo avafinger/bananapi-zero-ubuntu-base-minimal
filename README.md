@@ -333,17 +333,14 @@ Install instructions:
    * Device Tree Overlays support
 
 
-* **v17 mailine kernel 5.3.0-rc6 (experimental) upgrade**
-
-    deb package (**BROKEN - DON'T USE**):
-    
-      https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
-
 
 # Mainline Kernel 5.3.0-rc6
 
 This is mainline Kernel 5.3.0-rc6.
 
+**v17 mailine kernel 5.3.0-rc6 (experimental) upgrade**
+
+deb package (**BROKEN - DON'T USE**):
 
 Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
 
