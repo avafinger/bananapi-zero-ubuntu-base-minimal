@@ -302,6 +302,11 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v19 mailine kernel 5.3.1 (experimental) upgrade**
+
+deb package: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.1
+
+
 * **v18 mailine kernel 5.3.0-rc7 (experimental) upgrade**
 
     deb package:
