@@ -302,6 +302,22 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v20 mailine kernel 5.3.1 (experimental) upgrade and fix**
+
+deb package: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.2
+
+Mainline stable kernel 5.3.1 with:
+
+* HDMI (fix)
+* sound-hdmi
+* Bluetooth (fix)
+* cedrus
+
+**Attention**
+
+If you aleady upgraded to the buggy kernel 5.3.1 you need to downgrade or create a clean installation.
+
+
 * **v19 mailine kernel 5.3.1 (experimental) upgrade**
 
 deb package: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.1
