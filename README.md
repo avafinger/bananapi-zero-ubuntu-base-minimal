@@ -303,7 +303,7 @@ Check for the codecs:
 			      allwinner,hdmi
 
 
-* **v21 mailine kernel 5.3.4 (experimental) upgradeix**
+* **v21 mailine kernel 5.3.4 (experimental) upgrade**
 
 deb package: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.3
 
