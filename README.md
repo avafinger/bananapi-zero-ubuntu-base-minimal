@@ -302,6 +302,10 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v29 mailine kernel 5.3.18 (experimental) Ubuntu 19.10 EOAN**
+
+Kernel Image: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.9
+
 * **v25 mailine kernel 5.3.7 fbdev (experimental) Ubuntu 19.10 EOAN**
 
 Os Image: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.5
