@@ -302,6 +302,13 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v30 mailine kernel 5.6.0-rc3 (experimental) Ubuntu 19.10 EOAN**
+
+* Lima support (testing)
+
+Kernel Image: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.0
+
+
 * **v29 mailine kernel 5.3.18 (experimental) Ubuntu 19.10 EOAN**
 
 Kernel Image: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v2.9
