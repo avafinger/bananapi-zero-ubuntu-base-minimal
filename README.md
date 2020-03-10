@@ -1,8 +1,10 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.19.y (mainline - stable)
 
-This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y with some patches applied.
+This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y / 5.3.y / 5.6.y with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
+
+![Htop screenshot](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/bpi-m2z.png)
 
 The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
 
