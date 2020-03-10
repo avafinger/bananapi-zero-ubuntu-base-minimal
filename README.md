@@ -306,6 +306,13 @@ Check for the codecs:
 
 https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.2
 
+Testing HDMI sound output:
+
+    aplay -D pulse /usr/share/sounds/alsa/Front_Right.wav 
+    aplay -D sysdefault:CARD=1 /usr/share/sounds/alsa/Front_Right.wav 
+    aplay -D sysdefault:CARD=0 /usr/share/sounds/alsa/Front_Right.wav 
+
+
 
 * **v31 mailine kernel 5.6.0-rc4 (experimental) Ubuntu 19.10 EOAN**
 
