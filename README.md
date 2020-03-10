@@ -310,9 +310,16 @@ https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.2
 
 Testing HDMI sound output:
 
-    aplay -D pulse /usr/share/sounds/alsa/Front_Right.wav 
-    aplay -D sysdefault:CARD=1 /usr/share/sounds/alsa/Front_Right.wav 
-    aplay -D sysdefault:CARD=0 /usr/share/sounds/alsa/Front_Right.wav 
+* add user to audio group (no need for **sudo** while playing sound)
+
+     sudo usermod -a -G audio ubuntu
+
+* play some sounds
+
+
+    aplay -D pulse /usr/share/sounds/alsa/Front_Right.wav (sound output via pulse)
+    aplay -D sysdefault:CARD=1 /usr/share/sounds/alsa/Front_Right.wav (HDMI sound output)
+    aplay -D sysdefault:CARD=0 /usr/share/sounds/alsa/Front_Right.wav (sound output to analog)
 
 
 
