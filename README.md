@@ -304,6 +304,56 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+
+* **v33 mailine kernel 5.6.5-r1 (experimental) Ubuntu 19.10 EOAN with GBM**
+
+This is kernel **5.6.5** with **mali GBM** instead of **panfrost**
+
+https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.3
+
+How to install the new kernel on EOAN only:
+
+* download the deb file **linux-image-5.6.5-r1_1.0-42.deb**
+* run in shell: sudo dpkg -i linux-image-5.6.5-r1_1.0-42.deb 
+
+you get similar output:
+
+	ubuntu@bpi-m2z:~$ sudo dpkg -i linux-image-5.6.5-r1_1.0-42.deb 
+	Selecting previously unselected package linux-image-5.6.5-r1.
+	(Reading database ... 56892 files and directories currently installed.)
+	Preparing to unpack linux-image-5.6.5-r1_1.0-42.deb ...
+	INFO: Updating Kernel 5.6.3 to 5.6.5-r1
+	INFO: Updating...
+	Unpacking linux-image-5.6.5-r1 (1.0-42) ...
+	Setting up linux-image-5.6.5-r1 (1.0-42) ...
+	OK: Kernel upgrade success! Please reboot with: sync && sudo reboot
+	ubuntu@bpi-m2z:~$ sync
+	ubuntu@bpi-m2z:~$ sudo reboot
+	Connection to 192.168.254.16 closed by remote host.
+	Connection to 192.168.254.16 closed.
+	alex@svn:/arm/ubuntu/friendlywrt-rk3328$ ssh ubuntu@192.168.254.16
+	ubuntu@192.168.254.16's password: 
+	Welcome to Ubuntu 19.10 (GNU/Linux 5.6.5-r1 armv7l)
+
+	 * Documentation:  https://help.ubuntu.com
+	 * Management:     https://landscape.canonical.com
+	 * Support:        https://ubuntu.com/advantage
+
+	Last login: Mon Apr 20 23:04:40 2020 from 192.168.254.253
+	ubuntu@bpi-m2z:~$ 
+
+Checking for the Bluetooth:
+
+	ubuntu@bpi-m2z:~$ hciconfig
+	hci0:	Type: Primary  Bus: UART
+		BD Address: CC:B8:A8:A9:E5:67  ACL MTU: 1021:8  SCO MTU: 64:1
+		UP RUNNING PSCAN 
+		RX bytes:2184 acl:0 sco:0 events:214 errors:0
+		TX bytes:36815 acl:0 sco:0 commands:215 errors:0
+
+	ubuntu@bpi-m2z:~$ 
+
+
 * **v32 mailine kernel 5.6.0-rc5 (experimental) Ubuntu 19.10 EOAN**
 
 https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.2
@@ -318,7 +368,9 @@ Testing HDMI sound output:
 
 
     aplay -D pulse /usr/share/sounds/alsa/Front_Right.wav (sound output via pulse)
+    
     aplay -D sysdefault:CARD=1 /usr/share/sounds/alsa/Front_Right.wav (HDMI sound output)
+    
     aplay -D sysdefault:CARD=0 /usr/share/sounds/alsa/Front_Right.wav (sound output to analog)
 
 
