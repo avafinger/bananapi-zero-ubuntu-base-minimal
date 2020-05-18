@@ -304,6 +304,20 @@ Check for the codecs:
 	 1 [allwinnerhdmi  ]: allwinner_hdmi - allwinner,hdmi
 			      allwinner,hdmi
 
+* **v35 mailine kernel 5.6.13-server (experimental) Ubuntu 19.10 EOAN**
+
+Server edition with no HW acceleration ideal for embedded systems where you can build your server applications, kernels or install a small Desktop like LXDE.
+
+Small footprint.
+
+**Fix**: CPU Temp, DVFS, BT
+
+* Instructions:
+
+https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.6
+
+
+
 * **v34 mailine kernel 5.6.5-server (experimental) Ubuntu 19.10 EOAN**
 
 This is the ideal server like kernel where you can build your applications, kernels or install a small Desktop.
