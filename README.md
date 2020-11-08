@@ -1,12 +1,23 @@
 # bananapi-zero-ubuntu-base-minimal
 BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 2017.09 / Kernel 4.19.y (mainline - stable)
 
+* [Introduction](#introduction)
+* [Kernel History](#kernel-history)
+* [Bluetooth](#bluetooth)
+* [Working with Cameras](#working-with-cameras)
+
+The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
+
+## Introdcution
+
 This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y / 5.3.y / 5.6.y / 5.7.y with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
+Kernel 5.7.10 has support for OV5640.
 
 ![Htop screenshot](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/bpi-m2z.png)
 
-The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
+
+## Kernel history
 
 * v1 is Kernel 4.15.y
 
@@ -251,7 +262,7 @@ Mainline stable kernel 4.20.17 ready to build **Kodi**:
 To test mali GBM you can run **kmscube**
 To test cedrus you can run **v4l2-request-test**
 
-# VPU test
+## VPU test
 
 Testing cedrus on mainline is quite simple, run the tests below:
 
@@ -262,7 +273,7 @@ or
 
     sudo ./v4l2-request-test -l -f 25 -P caminandes-h265
 
-# Mali GBM test
+## Mali GBM test
 
 To test mali GBM you need to setup the mali blobs provided by https://github.com/bootlin/mali-blobs
 
@@ -274,7 +285,7 @@ When you run the **kmscube** you will see a cube spinning
 
     https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v14
 
-# hdmi-sound
+## hdmi-sound
 
 To be able to acess and output sound to HDMI you need to update the file **/etc/asound.conf**
 
@@ -494,7 +505,7 @@ deb package: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/rele
       https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.8
 
 
-# Mainline Kernel 5.3.0-rc7
+## Mainline Kernel 5.3.0-rc7
 
 This is mainline Kernel 5.3.0-rc7.
 
@@ -506,7 +517,7 @@ Install instructions:
     sudo dpkg -i linux-image-5.3.0-rc7_1.0-27.deb 
 
 
-# What's new with this Image v18 (mainline experimental)
+## What's new with this Image v18 (mainline experimental)
 
    * 5.3.0-rc7 (minor update)
    * mali gbm (GPU)
@@ -519,7 +530,7 @@ Install instructions:
 
 
 
-# Mainline Kernel 5.3.0-rc6
+## Mainline Kernel 5.3.0-rc6
 
 This is mainline Kernel 5.3.0-rc6.
 
@@ -530,7 +541,7 @@ deb package (**BROKEN - DON'T USE**):
 Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
 
 
-# What's new with this Image v17 (mainline experimental)
+## What's new with this Image v17 (mainline experimental)
 
    * 5.3.0-rc6 ()
    * mali gbm (GPU)
@@ -548,7 +559,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
       https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v1.7
 
 
-# Mainline Kernel 5.3.0-rc3 (Kodi)
+## Mainline Kernel 5.3.0-rc3 (Kodi)
 
 This is mainline Kernel 5.3.0-rc3 ready to build and run Kodi.
 
@@ -557,7 +568,7 @@ Bootlog: https://gist.github.com/avafinger/5a172aaac7a97d6ee186498cd74896cf
 Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v16
 
 
-# What's new with this Image v16 (mainline experimental)
+## What's new with this Image v16 (mainline experimental)
 
    * 5.3.0-rc3 (for building Kodi)
    * mali gbm (GPU)
@@ -569,7 +580,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
 
 
 
-# What's new with this Image v14 (mainline experimental)
+## What's new with this Image v14 (mainline experimental)
 
 
    * 4.20.17 (for building Kodi)
@@ -579,13 +590,13 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
    * hdmi-sound
 
 
-# What's new with this Image v13 (mainline experimental)
+## What's new with this Image v13 (mainline experimental)
 
 
    * 4.20.17-m2z (minimum kernel)
    
 
-# What's new with this Image v12 (mainline experimental)
+## What's new with this Image v12 (mainline experimental)
 
 
    * 4.20.0 (for testing)
@@ -594,7 +605,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
 
 
 
-# What's new with this Image v11 (LTS experimental)
+## What's new with this Image v11 (LTS experimental)
 
 
    * 4.19.12 (for testing)
@@ -603,7 +614,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
 
 
 
-# What's new with this Image v10 (LTS experimental)
+## What's new with this Image v10 (LTS experimental)
 
 
    * 4.19.6 (for testing)
@@ -612,7 +623,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
 
 
 
-# What's new with this Image v9 (LTS experimental)
+## What's new with this Image v9 (LTS experimental)
 
 
 
@@ -620,7 +631,7 @@ Install the new Kernel: https://github.com/avafinger/bananapi-zero-ubuntu-base-m
 
 
 
-# What's new with this Image v8 (experimental)
+## What's new with this Image v8 (experimental)
 Image upgraded to **Kernel 4.20-rc3**
 
  
@@ -629,7 +640,7 @@ Image upgraded to **Kernel 4.20-rc3**
    * Bluetooth (working) - See Instructions on Bluetooth below
 
 
-# What's new with this Image v7 (experimental)
+## What's new with this Image v7 (experimental)
 Image upgraded to **Kernel 4.20-rc2**
 
  
@@ -638,7 +649,7 @@ Image upgraded to **Kernel 4.20-rc2**
    * Bluetooth (need to load hci_uart module and install Bluez tools)
 
 
-# What's new with this Image v6 (experimental)
+## What's new with this Image v6 (experimental)
 Image upgraded to **Kernel 4.19.1**
 
  
@@ -646,7 +657,7 @@ Image upgraded to **Kernel 4.19.1**
    * mali removed
 
 
-# What's new with this Image v5 (experimental)
+## What's new with this Image v5 (experimental)
 Image upgraded to **Kernel 4.19.0**
 
     * operating-points-v2 working as it should (next series will be 4.19.y)
@@ -659,7 +670,7 @@ Issue:
 
 
 
-# What's new with this Image v4
+## What's new with this Image v4
 Image updated to **Kernel 4.18.8** and has the following working:
 
     * operating-points-v2 working as it should (next series will be 4.19.y)
@@ -677,7 +688,7 @@ On next reboot you will see if ZRAM is active:
 		/dev/zram0  /dev/zram1  /dev/zram2  /dev/zram3
 
 
-# What's new with this Image v3
+## What's new with this Image v3
 Image updated to **Kernel 4.18.4** and has the following working:
 
     * framebuffer with 1920x1080
@@ -691,7 +702,7 @@ Image updated to **Kernel 4.18.4** and has the following working:
     * ssh enabled
     * new operating-points-v2 instead of old one (experimental)
 
-# What's new with this Image v2
+## What's new with this Image v2
 Image updated to **Kernel 4.17.17** and has the following working:
 
     * framebuffer with 1920x1080
@@ -751,7 +762,7 @@ To do after first boot (Advanced users):
 
 
 
-# Tips
+## Tips
 
 * Board runs at ~60ºC when idle with HDMI, ~40ºC without HDMI enabled (*without heatsink*)
 
@@ -764,7 +775,7 @@ To do after first boot (Advanced users):
   Regulatory.db needs to be generated somehow, until wireless-regdb is updated or rebuild it yourself. 
 
 
-# Basic instructions to flash firmware to SD CARD
+## Basic instructions to flash firmware to SD CARD
 
 * You need a *linux box*
 * You need a *good* SD CARD reader/writer (External SD CARD Reader are known to not be reliable)
@@ -806,7 +817,7 @@ To do after first boot (Advanced users):
 
 		sudo ./format_sd_mainline.sh /dev/mmcblk0
 
-# Image v2 (Kernel 4.17.4)
+## Image v2 (Kernel 4.17.4)
 
 * flash Image to sd card (**ssh enabled**):
 
@@ -816,7 +827,7 @@ To do after first boot (Advanced users):
 
 
 
-# Image v1 (Kernel 4.15.y)
+## Image v1 (Kernel 4.15.y)
 
 * flash Image to sd card:
 
@@ -832,7 +843,7 @@ To do after first boot (Advanced users):
 Before you boot, configure your wifi
 	
 
-# Connecting to AP via Wifi
+## Connecting to AP via Wifi
 
 Wifi use wpa_supplicant to connect to AP.
 Before you boot the Image, please edit **/etc/network/interfaces**
@@ -860,7 +871,7 @@ via serial debug or use ssh to connect remotely from your computer.
 Conecting via ssh or putty:
 ssh ubuntu@IP where IP is the IP assigned to the board.
 
-# First thing you should do on the first login (**for v1 only**)
+## First thing you should do on the first login (**for v1 only**)
 
 * fix mv segment fault
 
@@ -890,7 +901,7 @@ reboot now:
 	sudo reboot
 
 
-# Mali benchmark
+## Mali benchmark
 
 You can benchmark mali for fbdev, type in shell:
 
@@ -908,7 +919,7 @@ You can add FRONTBUFFER_LOCKING=1 to prevent tearing before running benchmark:
 
 [![mali bechmark screenshot 3](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/mali3.png)]
 
-# Installing a Full Desktop environment
+## Installing a Full Desktop environment
 
 After you setup a connection to internet, you can install a Desktop environment
 
@@ -924,7 +935,7 @@ Wait until it finished and issue:
 
 Reboot and you have LXDE Desktop
 
-# Bluetooth
+## Bluetooth
 
 The latest Kernel 4.20.0-rc3 upgrade has Bluetooth working.
 To be able to use bluetooth follow this instructions (it should be automated via systemd service but for the sake of 
@@ -969,7 +980,7 @@ We should have now our Bluetooth ready, you can check:
 			hci0	11:22:33:44:55:66
 
 
-# Bluetooth - How to pair a Bluetooth Phone with command line
+## Bluetooth - How to pair a Bluetooth Phone with command line
 
 We are going to test our bluetooth setup conecting our board to a Phone (pair with a Phone).
 In a Desktop environment we have Blueman which would do it automagically but installing it would require a lot of packages
@@ -1335,7 +1346,9 @@ And finally you can check the Services of your Bluetooth Phone:
 		Service Name: Email Message Access
 
 
-# Enbale Bluetooth on next boot (permanently)
+# Bluetooth
+
+## Enbale Bluetooth on next boot (permanently)
 
 To enable Bluetooth (BT) for every new boot, edit /etc/rc.local and add the command:
 
@@ -1373,7 +1386,7 @@ Make sure /etc/rc.local has run permissions:
 
 		sudo chmod +x /etc/rc.local
 
-# Build your own Kernel
+## Build your own Kernel
 Here are the instructions for building your own kernel on board.
 
  * Install tools
@@ -1434,6 +1447,201 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/refs/tags
 You can add or change kernel modules at any time and modify your **dts** to get the hw peripherals to work properly.
 **From now on you are at your own.**
 
+
+## Working with Cameras
+
+![Camera streaming side by side](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/cameras.png)
+
+There is support for cameras in Kernel mainline kernel. You can use USB camera or the OV5640 camera (DVP).
+
+* USB camera
+* OV5640 DVP camera
+
+**USB Camera**
+
+Once you attach the USB camera you will see the device node representing the camera, that is:
+
+	ubuntu@bpi-m2z:~$ ll /dev/video*
+	crw-rw---- 1 root video 81, 0 Apr 11  2019 /dev/video0
+	crw-rw---- 1 root video 81, 1 Apr 11  2019 /dev/video1
+	crw-rw---- 1 root video 81, 3 Nov  8 13:29 /dev/video2
+	crw-rw---- 1 root video 81, 4 Nov  8 13:29 /dev/video3
+
+and media information in:
+
+	ubuntu@bpi-m2z:~$ ll /dev/media*
+	crw-rw-rw- 1 root video 243, 0 Apr 11  2019 /dev/media0
+	crw-rw-rw- 1 root video 243, 1 Apr 11  2019 /dev/media1
+	crw-rw-rw- 1 root video 243, 2 Nov  8 13:29 /dev/media2
+
+To find about the topology of the camera you would do:
+
+	ubuntu@bpi-m2z:~$ media-ctl --device /dev/media2 --print-topology
+	Media controller API version 5.7.10
+
+	Media device information
+	------------------------
+	driver          uvcvideo
+	model           USB 2.0 Camera: HD 720P Webcam
+	serial          
+	bus info        usb-1c1a000.usb-1.2
+	hw revision     0x0
+	driver version  5.7.10
+
+	Device topology
+	- entity 1: USB 2.0 Camera: HD 720P Webcam (1 pad, 1 link)
+		    type Node subtype V4L flags 1
+		    device node name /dev/video2
+		pad0: Sink
+			<- "Extension 4":1 [ENABLED,IMMUTABLE]
+
+	- entity 4: USB 2.0 Camera: HD 720P Webcam (0 pad, 0 link)
+		    type Node subtype V4L flags 0
+		    device node name /dev/video3
+
+	- entity 8: Extension 4 (2 pads, 2 links)
+		    type V4L2 subdev subtype Unknown flags 0
+		pad0: Sink
+			<- "Processing 3":1 [ENABLED,IMMUTABLE]
+		pad1: Source
+			-> "USB 2.0 Camera: HD 720P Webcam":0 [ENABLED,IMMUTABLE]
+
+	- entity 11: Processing 3 (2 pads, 2 links)
+		     type V4L2 subdev subtype Unknown flags 0
+		pad0: Sink
+			<- "Camera 1":0 [ENABLED,IMMUTABLE]
+		pad1: Source
+			-> "Extension 4":0 [ENABLED,IMMUTABLE]
+
+	- entity 14: Camera 1 (1 pad, 1 link)
+		     type V4L2 subdev subtype Unknown flags 0
+		pad0: Source
+			-> "Processing 3":0 [ENABLED,IMMUTABLE]
+
+We have our HD 720P USB camera attached to the USB 2.0 slot. The kernel created /dev/video2 and /dev/media2 nodes for us.
+You can test the streaming with USB camera using mjpg_streamer like this:
+
+	mjpg_streamer -i "./input_uvc.so -d /dev/video2 -r 1280x720 -q 90 -n" -o "./output_http.so -p 8088 -w ./www"
+
+
+**OV5640 DVP camera**
+
+Testing video streaming with OV5640 requires you to tell kernel the window size and format of the frame unless you use the default 640x480 Pixels in size and YUV420P format
+
+In our example we find the frame format our DVP sensor can be used:
+
+	ubuntu@bpi-m2z:~$ media-ctl -v --device /dev/media1 --known-mbus-fmts
+	RGB444_1X12                     0x1016
+	RGB444_2X8_PADHI_BE             0x1001
+	RGB444_2X8_PADHI_LE             0x1002
+	RGB555_2X8_PADHI_BE             0x1003
+	RGB555_2X8_PADHI_LE             0x1004
+	RGB565_1X16                     0x1017
+	BGR565_2X8_BE                   0x1005
+	BGR565_2X8_LE                   0x1006
+	RGB565_2X8_BE                   0x1007
+	RGB565_2X8_LE                   0x1008
+	RGB666_1X18                     0x1009
+	RBG888_1X24                     0x100e
+	RGB666_1X24_CPADHI              0x1015
+	RGB666_1X7X3_SPWG               0x1010
+	BGR888_1X24                     0x1013
+	GBR888_1X24                     0x1014
+	RGB888_1X24                     0x100a
+	RGB888_2X12_BE                  0x100b
+	RGB888_2X12_LE                  0x100c
+	RGB888_1X7X4_SPWG               0x1011
+	RGB888_1X7X4_JEIDA              0x1012
+	ARGB8888_1X32                   0x100d
+	RGB888_1X32_PADHI               0x100f
+	RGB101010_1X30                  0x1018
+	RGB121212_1X36                  0x1019
+	RGB161616_1X48                  0x101a
+	Y8_1X8                          0x2001
+	UV8_1X8                         0x2015
+	UYVY8_1_5X8                     0x2002
+	VYUY8_1_5X8                     0x2003
+	YUYV8_1_5X8                     0x2004
+	YVYU8_1_5X8                     0x2005
+	UYVY8_2X8                       0x2006
+	VYUY8_2X8                       0x2007
+	YUYV8_2X8                       0x2008
+	YVYU8_2X8                       0x2009
+	Y10_1X10                        0x200a
+	Y10_2X8_PADHI_LE                0x202c
+	UYVY10_2X10                     0x2018
+	VYUY10_2X10                     0x2019
+	YUYV10_2X10                     0x200b
+	YVYU10_2X10                     0x200c
+	Y12_1X12                        0x2013
+	UYVY12_2X12                     0x201c
+	VYUY12_2X12                     0x201d
+	YUYV12_2X12                     0x201e
+	YVYU12_2X12                     0x201f
+	UYVY8_1X16                      0x200f
+	VYUY8_1X16                      0x2010
+	YUYV8_1X16                      0x2011
+	YVYU8_1X16                      0x2012
+	YDYUYDYV8_1X16                  0x2014
+	UYVY10_1X20                     0x201a
+	VYUY10_1X20                     0x201b
+	YUYV10_1X20                     0x200d
+	YVYU10_1X20                     0x200e
+	VUY8_1X24                       0x2024
+	YUV8_1X24                       0x2025
+	UYYVYY8_0_5X24                  0x2026
+	UYVY12_1X24                     0x2020
+	VYUY12_1X24                     0x2021
+	YUYV12_1X24                     0x2022
+	YVYU12_1X24                     0x2023
+	YUV10_1X30                      0x2016
+	UYYVYY10_0_5X30                 0x2027
+	AYUV8_1X32                      0x2017
+	UYYVYY12_0_5X36                 0x2028
+	YUV12_1X36                      0x2029
+	YUV16_1X48                      0x202a
+	UYYVYY16_0_5X48                 0x202b
+	SBGGR8_1X8                      0x3001
+	SGBRG8_1X8                      0x3013
+	SGRBG8_1X8                      0x3002
+	SRGGB8_1X8                      0x3014
+	SBGGR10_ALAW8_1X8               0x3015
+	SGBRG10_ALAW8_1X8               0x3016
+	SGRBG10_ALAW8_1X8               0x3017
+	SRGGB10_ALAW8_1X8               0x3018
+	SBGGR10_DPCM8_1X8               0x300b
+	SGBRG10_DPCM8_1X8               0x300c
+	SGRBG10_DPCM8_1X8               0x3009
+	SRGGB10_DPCM8_1X8               0x300d
+	SBGGR10_2X8_PADHI_BE            0x3003
+	SBGGR10_2X8_PADHI_LE            0x3004
+	SBGGR10_2X8_PADLO_BE            0x3005
+	SBGGR10_2X8_PADLO_LE            0x3006
+	SBGGR10_1X10                    0x3007
+	SGBRG10_1X10                    0x300e
+	SGRBG10_1X10                    0x300a
+	SRGGB10_1X10                    0x300f
+	SBGGR12_1X12                    0x3008
+	SGBRG12_1X12                    0x3010
+	SGRBG12_1X12                    0x3011
+	SRGGB12_1X12                    0x3012
+	SBGGR14_1X14                    0x3019
+	SGBRG14_1X14                    0x301a
+	SGRBG14_1X14                    0x301b
+	SRGGB14_1X14                    0x301c
+	SBGGR16_1X16                    0x301d
+	SGBRG16_1X16                    0x301e
+	SGRBG16_1X16                    0x301f
+	SRGGB16_1X16                    0x3020
+	JPEG_1X8                        0x4001
+	S5C_UYVY_JPEG_1X8               0x5001
+	AHSV8888_1X32                   0x6001
+
+In order to get maxim speed and optimization for streaming video we use the MJPEG format that delivers a compressed JPEG image to be sent over the Wifi.
+we need an optimized mjp_streamer which will grab and send MJPEG to the browser.
+
+	mjpg_streamer -i "./input_uvc.so -d /dev/video2 -r 1280x720 -q 90 -n" -o "./output_http.so -p 8088 -w ./www"
+
 # Credits
 Kernel 4.20.0-rc3 is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
 
@@ -1442,7 +1650,7 @@ Mali based on MRipard (Bootlin)
 Thanks to Nora Lee (FOXCONN) for the sample.
 
 
-# bootlog of bpi-m2z with Kernel 4.20.0-rc3
+## bootlog of bpi-m2z with Kernel 4.20.0-rc3
 
 	[    0.000000] Booting Linux on physical CPU 0x0
 	[    0.000000] Linux version 4.20.0-rc3-m2z-otg-gadget (alex@svn) (gcc version 7.3.1 20180425 [linaro-7.3-2018.05 revision d29120a424ecfbc167ef90065c0eeb7f91977701] (Linaro GCC 7.3-2018.05)) #1 SMP Mon Nov 19 19:37:43 -02 2018
