@@ -1452,7 +1452,9 @@ You can add or change kernel modules at any time and modify your **dts** to get 
 
 ![Camera streaming side by side](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/cameras.png)
 
-There is support for cameras in Kernel mainline kernel. You can use USB camera or the OV5640 camera (DVP).
+There is support for camera in mainline kernel. You can use a USB camera or the OV5640 camera (DVP).
+In general, USB camera are slower than the DVP camera, you can stream video at 20 FPS with DVP camera and 10 FPS for the USB camera.
+The quality of the image is highly dependent on the lens used. Using a sensor without AF is recommended if you use mainline kernel.
 
 * USB camera
 * OV5640 DVP camera
@@ -1637,16 +1639,25 @@ In our example we find the frame format our DVP sensor can be used:
 	S5C_UYVY_JPEG_1X8               0x5001
 	AHSV8888_1X32                   0x6001
 
-In order to get maxim speed and optimization for streaming video we use the MJPEG format that delivers a compressed JPEG image to be sent over the Wifi.
-we need an optimized mjp_streamer which will grab and send MJPEG to the browser.
+In order to get maximum speed and optimization for streaming a video we use the MJPEG format that delivers a compressed JPEG image to be sent over the Wifi.
+We need an optimized mjp_streamer which will grab the image and send MJPEG to the browser at the other side.
 
-	mjpg_streamer -i "./input_uvc.so -d /dev/video2 -r 1280x720 -q 90 -n" -o "./output_http.so -p 8088 -w ./www"
+* Tell kernel we want MJPEG and 720P
+
+		media-ctl --device /dev/media1 --set-v4l2 '"ov5640 3-003c":0[fmt:JPEG_1X8/1280x720]'
+
+* Stream the video at port 8080
+
+		mjpg_streamer -i "./input_uvc.so -d /dev/video2 -r 1280x720 -q 90 -n" -o "./output_http.so -p 8080 -w ./www"
+
+* Fire you browser and type in the address: http://192.168.254.40:8080/
+
 
 # Credits
+
 Kernel 4.20.0-rc3 is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
-
+Kernel 5.7.y is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
 Mali based on MRipard (Bootlin)
-
 Thanks to Nora Lee (FOXCONN) for the sample.
 
 
