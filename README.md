@@ -1652,6 +1652,43 @@ We need an optimized mjp_streamer which will grab the image and send MJPEG to th
 
 * Fire you browser and type in the address: http://192.168.254.40:8080/
 
+IP: 192.168.254 (our **wifi** ip from ifconfig)
+Port: 8080
+
+	ubuntu@bpi-m2z:~$ ifconfig
+	eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+		ether 0a:e8:6a:5d:c9:67  txqueuelen 1000  (Ethernet)
+		RX packets 0  bytes 0 (0.0 B)
+		RX errors 0  dropped 0  overruns 0  frame 0
+		TX packets 0  bytes 0 (0.0 B)
+		TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+		device interrupt 39  
+
+	lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+		inet 127.0.0.1  netmask 255.0.0.0
+		inet6 ::1  prefixlen 128  scopeid 0x10<host>
+		loop  txqueuelen 1000  (Local Loopback)
+		RX packets 80  bytes 5920 (5.9 KB)
+		RX errors 0  dropped 0  overruns 0  frame 0
+		TX packets 80  bytes 5920 (5.9 KB)
+		TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+	wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+		inet 192.168.254.40  netmask 255.255.0.0  broadcast 192.168.255.255
+		inet6 2804:7f4:3580:4e5c:54d7:6af3:db1c:17d7  prefixlen 64  scopeid 0x0<global>
+		inet6 fe80::ceb8:a8ff:fea9:e566  prefixlen 64  scopeid 0x20<link>
+		inet6 2804:7f4:3580:4e5c:ceb8:a8ff:fea9:e566  prefixlen 64  scopeid 0x0<global>
+		ether cc:b8:a8:a9:e5:66  txqueuelen 1000  (Ethernet)
+		RX packets 1642540  bytes 99599273 (99.5 MB)
+		RX errors 0  dropped 0  overruns 0  frame 0
+		TX packets 5776910  bytes 4248531828 (4.2 GB)
+		TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+
+* Streaming video with Crhomium
+
+![Streaming video](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/ov5640_streaming.png)
 
 # Credits
 
