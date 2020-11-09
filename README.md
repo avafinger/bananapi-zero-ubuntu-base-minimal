@@ -5,10 +5,11 @@ BananaPi M2 Zero  - Ubuntu Xenial Base Minimal Image (Experimental) - U-Boot 201
 * [Kernel History](#kernel-history)
 * [Bluetooth](#bluetooth)
 * [Working with Cameras](#working-with-cameras)
+* [Releases](#releases)
 
 The Image comes with the minimum packages but you can install a full Desktop on top of this, see how at the end.
 
-## Introdcution
+## Introduction
 
 This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y / 5.3.y / 5.6.y / 5.7.y with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
@@ -1686,15 +1687,25 @@ Port: 8080
 
 
 
-* Streaming video with Crhomium
+* Streaming video with Chromium
 
 ![Streaming video](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/ov5640_streaming.png)
+
+## Releases
+
+Some pre-built firmware and linux-image have been released here:
+
+https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases
+
 
 # Credits
 
 Kernel 4.20.0-rc3 is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
+
 Kernel 5.7.y is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
-Mali based on MRipard (Bootlin)
+
+Mali is based on the work done by MRipard (Bootlin)
+
 Thanks to Nora Lee (FOXCONN) for the sample.
 
 
