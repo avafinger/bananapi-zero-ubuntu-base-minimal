@@ -11,9 +11,9 @@ The Image comes with the minimum packages but you can install a full Desktop on 
 
 ## Introduction
 
-This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y / 5.3.y / 5.6.y / 5.7.y with some patches applied.
+This is a **WiP**, a bare minimum firmware image (CLI - command line interface) with basic configurations. Kernel used is Mainline kernel 4.17.y / 4.18.y / 4.20.y / 5.3.y / 5.6.y / 5.7.y / 5.11.y with some patches applied.
 The idea behind this firmware is to have a very basic sd card image and add packages to your need.
-Kernel 5.7.10 has support for OV5640.
+Kernel 5.7.10 / 5.11.10 has support for OV5640.
 
 ![Htop screenshot](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/img/bpi-m2z.png)
 
@@ -1691,6 +1691,20 @@ Port: 8080
 
 ![Streaming video](https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/raw/master/ov5640_streaming.png)
 
+
+## Ubuntu 20.04 LTS
+
+Minimal image with the following support enabled:
+
+* Wifi
+* Ethernet (if wired)
+* OV5640
+* Server like features
+* BT (not tested)
+* Stable Kernel 5.11.10
+
+Pre-built OS Image here: https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.9
+
 ## Releases
 
 Some pre-built firmware and linux-image have been released here:
@@ -1703,6 +1717,8 @@ https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases
 Kernel 4.20.0-rc3 is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
 
 Kernel 5.7.y is based on mainline kernel (https://www.kernel.org/) (linux-sunxi effort).
+
+Kernel 5.11.y is based on stable kernel (https://www.kernel.org/) (linux-sunxi effort).
 
 Mali is based on the work done by MRipard (Bootlin)
 
