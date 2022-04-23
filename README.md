@@ -1708,6 +1708,12 @@ Pre-built OS Image here: https://github.com/avafinger/bananapi-zero-ubuntu-base-
 Pre-built OS Image with Kernel 5.7.10 and 5.11.10
 https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.10
 
+## Kernel headers
+
+The missing kernel headers are here:
+https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal/releases/tag/v3.11
+
+
 ## Releases
 
 Some pre-built firmware and linux-image have been released here:
